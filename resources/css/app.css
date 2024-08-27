@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+  
+.glow {
+    color: #fff; /* Text color */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+.glow-orange {
+    color: #c2410c;
+    text-shadow: 0 0 5px rgba(194,65,12,1), 0 0 30px rgba(194,65,12,1);
+}
