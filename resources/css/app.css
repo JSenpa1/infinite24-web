@@ -1,7 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-  
+
+html {
+    scroll-behavior: smooth;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn;
+    animation: fadeIn 2s;
+    -webkit-animation: fadeIn 2s;
+    -moz-animation: fadeIn 2s;
+    -o-animation: fadeIn 2s;
+    -ms-animation: fadeIn 2s;
+}
+
 .glow {
     color: #fff; /* Text color */
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.5);
