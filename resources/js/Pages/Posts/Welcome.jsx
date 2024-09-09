@@ -1,7 +1,6 @@
 import { Link, Head } from '@inertiajs/react';
 import { useGlitch } from 'react-powerglitch';
 import { TypeAnimation } from 'react-type-animation';
-import '../../../css/app.css';
 
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     const handleImageError = () => {
