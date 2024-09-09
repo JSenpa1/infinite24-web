@@ -8,6 +8,12 @@ use Inertia\Inertia;
 
 Route::get('/', [PagesController::class, 'home'])->name('home');
 
+Route::get('/game', function (){
+    return Inertia::render('Game');
+});
+
+Route::get('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
+
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
 //         'canLogin' => Route::has('login'),
