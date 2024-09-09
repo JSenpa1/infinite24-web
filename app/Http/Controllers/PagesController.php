@@ -16,11 +16,22 @@ class PagesController extends Controller
         $user = User::where('group_code', $request->input('code'))->first();
 
         if($user){
-            return Inertia::render($user->progress);
+            return redirect('game/1');
         }else{
             echo "<pre>";
             print_r($user);
             echo "</pre>";
+        }
+    }
+
+    public function DisplayGamePage($id){
+        switch($id){
+            case 1:
+                return Inertia::render('Game/Pos1');
+            case 2:
+                return Inertia::render('Game/Pos2');
+            default:
+                return 0;
         }
     }
     // public function home(){

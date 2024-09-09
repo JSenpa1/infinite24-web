@@ -9,11 +9,12 @@ use Inertia\Inertia;
 Route::get('/', [PagesController::class, 'home'])->name('home');
 
 Route::get('/game', function (){
-    return Inertia::render('Game');
+    return Inertia::render('Game/Index');
 });
 
 Route::get('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
 
+Route::get('/game/{id}', [PagesController::class, 'DisplayGamePage']);
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
 //         'canLogin' => Route::has('login'),

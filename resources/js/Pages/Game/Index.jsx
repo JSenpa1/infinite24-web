@@ -1,16 +1,6 @@
-import Logo from '../../assets/logo.png';
+import Logo from '../../../assets/logo.png';
 
-function Game(){
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    
-        // Perform your POST request or validation logic here
-        // You can also send the form data to a backend using fetch or axios
-    
-        // After form submission, navigate to the new URL
-        navigate('/game/check-status');
-      };
-
+function Index(){
     return(
         <div className="bg-cream montserrat-semibold">
             <div className="container flex justify-center items-center mx-auto min-h-screen">
@@ -30,4 +20,4 @@ function Game(){
     )
 }
 
-export default Game;
+export default Index;
