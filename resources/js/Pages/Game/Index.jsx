@@ -1,10 +1,17 @@
+import Alert from '@mui/material/Alert';
 import Logo from '../../../assets/logo.png';
 
-function Index(){
+function Index({ error }){
     return(
         <div className="bg-cream montserrat-semibold">
             <div className="container flex justify-center items-center mx-auto min-h-screen">
                 <div className="flex flex-col justify-center w-80">
+                    {error ? (
+                        <div className="flex justify-center">
+                            <Alert severity="error">{ error }</Alert>
+                        </div>
+                    ) : null
+                    }
                     <img className="" src={Logo} />
                     <div className="bg-white rounded-lg h-36 border p-3">
                         <form action="/game/check-status" method="get" className="flex flex-col justify-around w-full h-full">

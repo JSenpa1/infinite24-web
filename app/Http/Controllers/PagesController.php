@@ -18,9 +18,8 @@ class PagesController extends Controller
         if($user){
             return redirect('game/1');
         }else{
-            echo "<pre>";
-            print_r($user);
-            echo "</pre>";
+            return back()->with('error', 'Kode invalid!');
+            // return Inertia::render('Game/Index')->with('error', 'Kode invalid!'); 
         }
     }
 
