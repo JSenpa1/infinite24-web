@@ -17,6 +17,11 @@ Route::get('/game', function (){
 Route::get('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
 
 Route::get('/game/{id}', [PagesController::class, 'DisplayGamePage']);
+
+Route::get('game/{id}/confirmation', function (){
+    return Inertia::render('Game/InputCode');
+});
+
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
 //         'canLogin' => Route::has('login'),

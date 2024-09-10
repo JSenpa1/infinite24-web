@@ -16,7 +16,7 @@ class PagesController extends Controller
         $user = User::where('group_code', $request->input('code'))->first();
 
         if($user){
-            return redirect('game/1');
+            return redirect($user->progress);
         }else{
             return back()->with('error', 'Kode invalid!');
             // return Inertia::render('Game/Index')->with('error', 'Kode invalid!'); 
@@ -24,11 +24,14 @@ class PagesController extends Controller
     }
 
     public function DisplayGamePage($id){
+        // dd($id);
         switch($id){
             case 1:
                 return Inertia::render('Game/Pos1');
+                break;
             case 2:
                 return Inertia::render('Game/Pos2');
+                break;
             default:
                 return 0;
         }

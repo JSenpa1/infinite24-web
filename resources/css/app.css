@@ -6,6 +6,18 @@ html {
     scroll-behavior: smooth;
 }
 
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.25rem;
+}
+
+p {
+    font-size: 0.875rem;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
