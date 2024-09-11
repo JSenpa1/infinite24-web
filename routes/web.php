@@ -8,19 +8,20 @@ use Inertia\Inertia;
 
 Route::get('/', [PagesController::class, 'home'])->name('home');
 
-Route::get('/game', function (){
-    return Inertia::render('Game/Index', [
-        'error' => session('error'),
-    ]);
-});
+// Route::get('/game', function (){
+//     return Inertia::render('Game/Index', [
+//         'error' => session('error'),
+//     ]);
+// });
 
-Route::get('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
+Route::get('/game', [PagesController::class, 'CheckUser'])->name('check-user');
 
-Route::get('/game/{id}', [PagesController::class, 'DisplayGamePage']);
+Route::post('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
 
-Route::get('game/{id}/confirmation', function (){
-    return Inertia::render('Game/InputCode');
-});
+Route::post('/game/{id}/confirmation', [PagesController::class, 'CheckAnswer'])->name('check-answer');
+// Route::post('game/{id}/confirmation', function (){
+//     return Inertia::render('Game/InputCode');
+// });
 
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
