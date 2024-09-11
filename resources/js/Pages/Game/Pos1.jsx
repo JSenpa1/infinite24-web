@@ -1,5 +1,6 @@
+import Alert from '@mui/material/Alert';
 
-function Pos1(){
+function Pos1({ error }){
     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
     return(
@@ -10,6 +11,12 @@ function Pos1(){
                     <div className="border-2 border-white aspect-video w-4/5 lg:w-3/5 mb-5">
 
                     </div>
+                    {error ? (
+                        <div className="flex justify-center">
+                            <Alert severity="error">{ error }</Alert>
+                        </div>
+                    ) : null
+                    }
                     <form action="game/1/confirmation" method="post" className="w-4/5 h-fit">
                         <input type="hidden" name="_token" value={csrfToken} />
                         <div className="flex flex-col lg:flex-row h-full justify-around">

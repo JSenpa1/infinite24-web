@@ -18,7 +18,13 @@ class PagesController extends Controller
     public function CheckUser(){
         if(session()->has('user')){
             $user = User::where('group_code', session('user'))->first();
-            return Inertia::render($user->progress);
+            if(session()->has('error')){
+                return Inertia::render($user->progress, [
+                    'error' => session('error'),
+                ]);
+            }else{
+                return Inertia::render($user->progress);
+            }
         }else if(session()->has('error')){
             return Inertia::render('Game/Index', [
                 'error' => session('error'),
@@ -70,6 +76,31 @@ class PagesController extends Controller
                     $request->input('answer8b'),
                     $request->input('answer9b')
                 ];
+
+                $answer1 = array_map('intval', $answer1);
+                $answer2 = array_map('intval', $answer2);
+
+                $isAnswerWrong1 = false;
+                $isAnswerWrong2 = false;
+
+                for($i = 1; $i < 9; $i++){
+                    if($answerkey1[$i] !== $answer1[$i]){
+                        $isAnswerWrong1 = true;
+                    }
+
+                    if($answerkey2[$i] !== $answer2[$i]){
+                        $isAnswerWrong2 = true;
+                    }
+                }
+
+                if($isAnswerWrong1 && $isAnswerWrong2){
+                    return back()->with('error', 'Jawaban Soal 1 & 2 Masih Kurang Tepat!');
+                }else if($isAnswerWrong1){
+                    return back()->with('error', 'Jawaban Soal 1 Masih Kurang Tepat!');
+                }else if($isAnswerWrong2){
+                    return back()->with('error', 'Jawaban Soal 2 Masih Kurang Tepat!');
+                }
+
                 break;
             case 2:
                 break;
