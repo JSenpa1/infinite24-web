@@ -23,6 +23,10 @@ class PagesController extends Controller
             echo "</pre>";
         }
     }
+
+    public function FormPendaftaran() {
+        return Inertia::render('FormPendaftaran');
+    }
     // public function home(){
     //     return Inertia::render('Posts/Home');
     // }

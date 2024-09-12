@@ -6,13 +6,18 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', [PagesController::class, 'home'])->name('home');
+// Route::get('/', [PagesController::class, 'home'])->name('home');
 
 Route::get('/game', function (){
     return Inertia::render('Game');
 });
 
 Route::get('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
+
+Route::controller(PagesController::class)->group(function() {
+    Route::get('/', 'home');
+    Route::get('/FormPendaftaran', 'FormPendaftaran')->name('FormPendaftaran');
+});
 
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
