@@ -58,13 +58,11 @@ function Navbar() {
                 </div>
                 <div
                     onClick={() => setOpen(!open)}
-                    className={`text-3xl absolute right-8 top-9 cursor-pointer md:hidden ${textColor}`}
+                    className={`text-3xl absolute right-8 top-14 cursor-pointer md:hidden ${textColor}`}
                 >
                     <IonIcon name={open ? "close" : "menu"}></IonIcon>
                 </div>
-                <ul
-                    className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0
-            w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in 
+                <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in 
             ${
                 open
                     ? `top-[138px] ${navBackground}`
@@ -105,7 +103,7 @@ function Navbar() {
                             )}
                         </li>
                     ))}
-                    <li className="md:ml-8 mr-6 md:my-0 my-7 ">
+                    <li className="md:ml-8 mr-6 md:my-0 my-7 flex">
                         <RegisterButton />
                     </li>
                 </ul>
