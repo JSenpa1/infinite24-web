@@ -27,7 +27,7 @@ function Navbar() {
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 0 || open) {
-                setNavBackground("bg-slate-600 bg-opacity-60");
+                setNavBackground("bg-light-blue bg-opacity-60");
                 setTextColor("text-white");
             } else {
                 setNavBackground("bg-transparent");
@@ -67,7 +67,7 @@ function Navbar() {
             w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in 
             ${
                 open
-                    ? `top-[96px] ${navBackground}`
+                    ? `top-[138px] ${navBackground}`
                     : "top-[-490px] bg-transparent"
             } ${textColor}`}
                 >
@@ -83,24 +83,7 @@ function Navbar() {
                         >
                             {link.subLinks ? (
                                 <>
-                                    <div
-                                        className="flex items-center justify-center cursor-pointer"
-                                        onClick={() =>
-                                            setGalleryOpen(!galleryOpen)
-                                        }
-                                    >
-                                        {link.name}{" "}
-                                        <IonIcon
-                                            name={
-                                                galleryOpen
-                                                    ? "chevron-up"
-                                                    : "chevron-down"
-                                            }
-                                            className="ml-2"
-                                        ></IonIcon>
-                                    </div>
                                     <ul
-                                        ref={galleryRef}
                                         className={`overflow-hidden transition-all duration-500 ease-in-out opacity-0 h-0`}
                                     >
                                         {link.subLinks.map(
@@ -122,7 +105,7 @@ function Navbar() {
                             )}
                         </li>
                     ))}
-                    <li className="md:ml-8 ml-0 md:mx-0 relative md:left-0 md:translate-x-0 left-[50%] -translate-x-[14%]">
+                    <li className="md:ml-8 mr-6 md:my-0 my-7 ">
                         <RegisterButton />
                     </li>
                 </ul>
