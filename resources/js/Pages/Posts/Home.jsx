@@ -22,7 +22,7 @@ function Home() {
             </div>
             <div className="absolute inset-72 flex justify-center z-20">
                 <img
-                    src="/aboutus/title.png"
+                    src="/aboutus/title.svg"
                     alt="About Infinite"
                     className="max-h-[66px] max-w-[668.53px]"
                 />
@@ -38,33 +38,33 @@ function Home() {
             <div className="inline-flex">
                 <div className="flex justify-center mt-6">
                     <img
-                        src="/aboutus/tape1.png"
+                        src="/aboutus/tape1.svg"
                         className="absolute me-24 mt-10 z-20 max-w-[46.39px]"
                     />
                     <img
-                        src="/aboutus/fotobersamapleno1.JPG"
+                        src="/aboutus/fotopleno1(2).JPG"
                         alt="Foto PPIF"
                         className="max-w-[320px] max-h-[199px] border mt-16 border-8 border-white mx-12 rotate-[-13deg]"
                     />
                 </div>
                 <div className="flex justify-center mt-0">
                     <img
-                        src="/aboutus/tape2.png"
+                        src="/aboutus/tape2.svg"
                         className="absolute ms-10 z-20 max-w-[116px] max-h-[116px]"
                     />
                     <img
-                        src="/aboutus/fotobersamapleno1.JPG"
+                        src="/aboutus/fotopleno1(1).JPG"
                         alt="Foto PPIF"
                         className="max-w-[320px] max-h-[199px] mt-16 z-0 border border-8 border-white mx-12 rotate-[10deg]"
                     />
                 </div>
                 <div className="flex justify-center mt-10">
                     <img
-                        src="/aboutus/tape3.PNG"
+                        src="/aboutus/tape3.svg"
                         className="absolute me-24 ms-12 mt-0 z-20 max-w-[82px]"
                     />
                     <img
-                        src="/aboutus/fotopleno1(2).JPG"
+                        src="/aboutus/fotopleno1(3).JPG"
                         alt="Foto PPIF"
                         className="max-w-[320px] mt-10 max-h-[199px] border border-8 border-white mx-12 rotate-[-17deg]"
                     />
