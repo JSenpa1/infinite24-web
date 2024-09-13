@@ -20,6 +20,8 @@
         "vite": "^5.0"
     },
     "dependencies": {
+        "@reacticons/ionicons": "^7.1.0",
+        "react-fast-marquee": "^1.6.5",
         "react-powerglitch": "^1.0.3",
         "react-type-animation": "^3.2.0"
     }

@@ -1,8 +1,19 @@
+import HeroHome from '@/Components/Home/HeroHome'
+import MarqueeWrapper from '@/Components/Home/MarqueeWrapper'
+import Navbar from '@/Components/Navbar/Navbar'
+import { Head } from '@inertiajs/react'
 import React from 'react'
 
 function Home() {
   return (
-    <div>testing</div>
+    <>
+      <Head title='Home' />
+      <div className='overflow-hidden'>
+        <Navbar />
+        <HeroHome />
+        <MarqueeWrapper />
+      </div>
+    </>
   )
 }
 
