@@ -11,10 +11,10 @@ class PagesController extends Controller
     public function home(){
         return Inertia::render('Posts/Home');
     }
-
+    
     public function CheckRegistration(Request $request){
         $user = User::where('group_code', $request->input('code'))->first();
-
+        
         if($user){
             return Inertia::render($user->progress);
         }else{
@@ -23,6 +23,11 @@ class PagesController extends Controller
             echo "</pre>";
         }
     }
+
+    public function about(){
+        return Inertia::render('Posts/AboutUs');
+    }
+
     // public function home(){
     //     return Inertia::render('Posts/Home');
     // }
