@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', [PagesController::class, 'home'])->name('home');
+Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
 
 Route::get('/game', function (){
     return Inertia::render('Game');

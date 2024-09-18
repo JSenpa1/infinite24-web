@@ -9,7 +9,7 @@ use App\Models\User;
 class PagesController extends Controller
 {
     public function home(){
-        return Inertia::render('Posts/Welcome');
+        return Inertia::render('Posts/Contact');
     }
 
     public function CheckRegistration(Request $request){
