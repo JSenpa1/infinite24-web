@@ -27,7 +27,6 @@ const RegistrationForm = () => {
 
       <div className="absolute top-0 left-0 right-0 h-1/2 bg-[#003049]"></div>
 
-      {/* Images with absolute positioning */}
       {globe && (
         <img src={globe} alt="Globe" className="absolute bottom-10 left-10 w-24" />
       )}
