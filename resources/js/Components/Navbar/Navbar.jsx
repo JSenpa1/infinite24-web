@@ -27,8 +27,8 @@ function Navbar() {
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 0 || open) {
-                setNavBackground("bg-light-blue bg-opacity-60");
-                setTextColor("text-white");
+                setNavBackground("bg-grid-hero bg-white bg-opacity-100　shadow-[0px_-10px_18px_gray]");
+                setTextColor("text-slate-700");
             } else {
                 setNavBackground("bg-transparent");
                 setTextColor("text-black");
@@ -44,6 +44,7 @@ function Navbar() {
 
     return (
         <div className={`w-[100%] fixed top-0 left-0 z-50 ${navBackground} transition-colors duration-300`}>
+            <div className="relative top-[140px] left-0 w-screen h-[10px] border-[2px] border-light-red inset-0 z-10" />
             <div className="md:flex items-center justify-between py-10 md:px-10 px-7">
                 <div
                     className={`font-bold text-2xl cursor-pointer flex items-center ${textColor} font-sans`}
@@ -58,9 +59,11 @@ function Navbar() {
                 </div>
                 <div
                     onClick={() => setOpen(!open)}
-                    className={`text-3xl absolute right-8 top-14 cursor-pointer md:hidden ${textColor}`}
+                    className={`text-3xl absolute right-8 top-12 cursor-pointer md:hidden ${textColor}`}
                 >
-                    <IonIcon name={open ? "close" : "menu"}></IonIcon>
+                    <div className="w-12 h-12 bg-dark-blue rounded-md text-white flex item-center justify-center text-[100px] shadow-[0px_10px_18px_gray]">
+                        <IonIcon name={open ? "close" : "menu"}></IonIcon>
+                    </div>
                 </div>
                 <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in 
             ${

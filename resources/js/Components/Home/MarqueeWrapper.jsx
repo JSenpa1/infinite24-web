@@ -7,14 +7,16 @@ const MarqueeWrapper = () => {
 
   return (
     <>
-        <div className="mt-8 border-black shadow-[0px_-10px_18px_gray]">
-            <Marquee className="h-[60px] bg-dark-blue">
-                {textArray.map((text, index) => (
-                <span key={index} className="mx-5 font-outline-2 text-[23px] text-white font-bold">
-                    {text}
-                </span>
-                ))}
-            </Marquee>
+        <div className="md:mt-8 mt-[62%]">
+            <div className=" border-black shadow-[0px_-10px_18px_gray]">
+                <Marquee className="h-[60px] bg-dark-blue">
+                    {textArray.map((text, index) => (
+                    <span key={index} className="mx-5 font-outline-2 text-[23px] text-white font-bold">
+                        {text}
+                    </span>
+                    ))}
+                </Marquee>
+            </div>
         </div>
     </>
   );
