@@ -23,7 +23,7 @@ export default {
                 'white' : '#FAFAFA',
                 'dark-blue': '#003049',
                 'light-blue': '#669BBC',
-            }
+            },
         },
     },
 
