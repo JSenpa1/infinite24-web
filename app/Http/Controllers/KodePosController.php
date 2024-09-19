@@ -5,9 +5,50 @@ namespace App\Http\Controllers;
 use App\Models\KodePos;
 use App\Http\Requests\StoreKodePosRequest;
 use App\Http\Requests\UpdateKodePosRequest;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class KodePosController extends Controller
 {
+    public function getAuth(Request $request)
+    {
+        try{
+            $input_kode = $request->input('input_kode');
+            $check_kode = KodePos::where('kode', $input_kode)->first();
+            if ($check_kode) {
+                return response()->json([
+                    'id' => $check_kode->id,
+                    'kode' => $check_kode->kode,
+                ]);
+            } else {
+                return response()->json(['message' => 'Kode Salah'], 404);
+            }
+        }catch(\Exception $e){
+            return response()->json(['message' => 'Error: ' . $e->getMessage()], 500);
+        }
+    }
+
+    public function getKodePos(Request $request)
+    {
+        try{
+
+            $input_id = $request->input('input_id'); 
+            $input_kode = $request->input('input_kode');
+            
+            $check_kode = KodePos::where('id', $input_id)
+            ->where('kode', $input_kode)
+            ->first();
+            
+            if ($check_kode) {
+                return response()->json(['message' => 'Kode Benar']);
+            } else {
+                return response()->json(['message' => 'Kode Salah'], 404);
+            }
+        }catch(\Exception $e){
+            return response()->json(['message' => 'Error: ' . $e->getMessage()], 500);
+        }
+    }
+
     /**
      * Display a listing of the resource.
      */
