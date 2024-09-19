@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
+import axios from 'axios';
 
 function FormPendaftaran() {
 
     const [formData, setFormData] = useState({
         nama: '',
         nim: '',
+        angkatan: '',
     });
+
+    const [token, setToken] = useState(null);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -15,9 +19,22 @@ function FormPendaftaran() {
         });
     };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         console.log('Submitted Form: ', formData);
+        try {
+            const res = await axios.post("/api/mid", {
+                nama: formData.nama,
+                nim: formData.nim,
+                angkatan: formData.angkatan,
+            });
+
+            setToken(res.data);
+            console.log(token);
+            window.snap.pay(token);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (
@@ -42,6 +59,18 @@ function FormPendaftaran() {
                     id='nim'
                     name='nim'
                     value={formData.nim}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+
+            <div>
+                <label htmlFor='nim' className='text-white'>Angkatan:</label>
+                <input
+                    type='text'
+                    id='angkatan'
+                    name='angkatan'
+                    value={formData.angkatan}
                     onChange={handleChange}
                     required
                 />
