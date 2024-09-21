@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pos1Board2;
-use App\Http\Requests\StorePos1Board2Request;
-use App\Http\Requests\UpdatePos1Board2Request;
+use App\Models\Pos1;
+use App\Http\Requests\StorePos1Request;
+use App\Http\Requests\UpdatePos1Request;
 
-class Pos1Board2Controller extends Controller
+class Pos1Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class Pos1Board2Controller extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePos1Board2Request $request)
+    public function store(StorePos1Request $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class Pos1Board2Controller extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Pos1Board2 $pos1Board2)
+    public function show(Pos1 $pos1)
     {
         //
     }
@@ -43,7 +43,7 @@ class Pos1Board2Controller extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pos1Board2 $pos1Board2)
+    public function edit(Pos1 $pos1)
     {
         //
     }
@@ -51,7 +51,7 @@ class Pos1Board2Controller extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePos1Board2Request $request, Pos1Board2 $pos1Board2)
+    public function update(UpdatePos1Request $request, Pos1 $pos1)
     {
         //
     }
@@ -59,7 +59,7 @@ class Pos1Board2Controller extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pos1Board2 $pos1Board2)
+    public function destroy(Pos1 $pos1)
     {
         //
     }
