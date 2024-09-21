@@ -27,6 +27,7 @@ class PagesController extends Controller
     public function FormPendaftaran() {
         return Inertia::render('FormPendaftaran');
     }
+    
     public function about(){
         return Inertia::render('Posts/AboutUs');
     }
