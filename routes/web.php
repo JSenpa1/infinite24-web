@@ -11,7 +11,7 @@ Route::get('/', [PagesController::class, 'home'])->name('home');
 Route::get('/about', [PagesController::class, 'about'])->name('about');
 
 Route::get('/game', function (){
-    return Inertia::render('Game');
+    return Inertia::render('Game/Index');
 });
 
 Route::get('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
