@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\GroupCode;
+use App\Models\User;
 
-class GroupCodeSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -47,9 +47,10 @@ class GroupCodeSeeder extends Seeder
         ];
 
         foreach ($groupCode as $index => $group) {
-            GroupCode::create([
+            User::create([
                 'id' => $index + 1, 
-                'kode_grup' => $group,
+                'group_code' => $group,
+                'group_name' => $index + 1,
             ]);
         }
     }
