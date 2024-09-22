@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -28,6 +29,21 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+
+        $data = [
+            [
+                'group_name' => 'Group 1',
+                'group_code' => 'LOREM',
+                'progress' => 'Game/Pos1',
+            ],
+            [
+                'group_name' => 'Group 2',
+                'group_code' => 'IPSUM',
+                'progress' => 'Game/Pos2',
+            ],
+        ];
+
+        DB::table('users')->insert($data);
     }
 
     /**

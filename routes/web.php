@@ -10,11 +10,20 @@ use Inertia\Inertia;
 // Route::get('/', [PagesController::class, 'home'])->name('home');
 Route::get('/about', [PagesController::class, 'about'])->name('about');
 
-Route::get('/game', function (){
-    return Inertia::render('Game');
-});
+// Route::get('/game', function (){
+//     return Inertia::render('Game/Index', [
+//         'error' => session('error'),
+//     ]);
+// });
 
-Route::get('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
+Route::get('/game', [PagesController::class, 'CheckUser'])->name('check-user');
+
+Route::post('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
+
+Route::post('/game/{id}/confirmation', [PagesController::class, 'CheckAnswer'])->name('check-answer');
+// Route::post('game/{id}/confirmation', function (){
+//     return Inertia::render('Game/InputCode');
+// });
 
 Route::controller(PagesController::class)->group(function() {
     Route::get('/', 'home');
