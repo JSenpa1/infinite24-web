@@ -3,4 +3,4 @@ function Home() {
     <div>testing</div>
   )
 }
-  export default Home;
+export default Home;

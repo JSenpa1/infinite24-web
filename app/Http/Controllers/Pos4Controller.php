@@ -2,31 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pos2Part2;
-use App\Http\Requests\StorePos2Part2Request;
-use App\Http\Requests\UpdatePos2Part2Request;
+use App\Models\Pos4;
+use App\Http\Requests\StorePos4Request;
+use App\Http\Requests\UpdatePos4Request;
+use Exception;
 use Illuminate\Http\Request;
 
-class Pos2Part2Controller extends Controller
+class Pos4Controller extends Controller
 {
     public function checkJawaban(Request $request) {
         $request->validate([
             'jawaban' => 'required|string',
         ]);
 
-        try{
+        try {
             $jawaban = $request->input('jawaban');
-            $jawaban_benar = Pos2Part2::where('id', 1)->value('jawaban');
 
-            // $check_jawaban = Pos2Part2::where('id', '1')
-            // ->where('jawaban', $jawaban);
+            $jawaban_benar = Pos4::where('id', 1)->value('jawaban');
 
-            if ($jawaban == $jawaban_benar) {
+            if($jawaban == $jawaban_benar) {
                 return response()->json(['message' => 'benar']);
             } else {
-                return response()->json(['message' => 'salah'], 404);
+                return response()->json(['message' => 'salah']);
             }
-        }catch(\Exception $e){
+        } catch(Exception $e){
             return response()->json(['message' => 'Error: ' . $e->getMessage()], 500);
         }
     }
@@ -50,7 +49,7 @@ class Pos2Part2Controller extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePos2Part2Request $request)
+    public function store(StorePos4Request $request)
     {
         //
     }
@@ -58,7 +57,7 @@ class Pos2Part2Controller extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Pos2Part2 $pos2Part2)
+    public function show(Pos4 $pos4)
     {
         //
     }
@@ -66,7 +65,7 @@ class Pos2Part2Controller extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pos2Part2 $pos2Part2)
+    public function edit(Pos4 $pos4)
     {
         //
     }
@@ -74,7 +73,7 @@ class Pos2Part2Controller extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePos2Part2Request $request, Pos2Part2 $pos2Part2)
+    public function update(UpdatePos4Request $request, Pos4 $pos4)
     {
         //
     }
@@ -82,7 +81,7 @@ class Pos2Part2Controller extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pos2Part2 $pos2Part2)
+    public function destroy(Pos4 $pos4)
     {
         //
     }
