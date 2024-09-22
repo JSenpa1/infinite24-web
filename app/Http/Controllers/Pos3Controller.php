@@ -5,12 +5,32 @@ namespace App\Http\Controllers;
 use App\Models\Pos3;
 use App\Http\Requests\StorePos3Request;
 use App\Http\Requests\UpdatePos3Request;
+use Illuminate\Http\Request;
 
 class Pos3Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function checkJawaban(Request $request) {
+        $request->validate([
+            'jawaban' => 'required|string',
+            'id' => 'required|integer'
+        ]);
+
+        try{
+            $id = $request->input('id');
+            $jawaban = $request->input('jawaban');
+
+            $jawaban_benar = Pos3::where('id', $id)->value('jawaban');
+            
+            if ($jawaban == $jawaban_benar) {
+                return response()->json(['message' => 'benar']);
+            } else {
+                return response()->json(['message' => 'salah'], 404);
+            }
+        }catch(\Exception $e){
+            return response()->json(['message' => 'Error: ' . $e->getMessage()], 500);
+        }
+    }
+
     public function index()
     {
         //
