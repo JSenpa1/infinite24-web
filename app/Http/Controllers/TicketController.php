@@ -13,7 +13,7 @@ class TicketController extends Controller
 {
     public function __construct()
     {
-        
+
     }
 
     /**
@@ -95,13 +95,13 @@ class TicketController extends Controller
                 'nim' => 'required|string',
                 'angkatan' => 'required|string',
             ]);
-    
+
             $nama  = $request->input('nama');
             $nim = $request->input('nim');
             $angkatan = $request->input('angkatan');
-    
+
             if ($angkatan == '2024') {
-                
+
                 $params = array(
                     'transaction_details' => array(
                         'order_id' => rand(), // Use uniqid() for a unique order ID
@@ -113,9 +113,9 @@ class TicketController extends Controller
                         'angkatan' => $angkatan,
                     ),
                 );
-    
+
                 // return response()->json(['message' => 'Angkatan 2024', 'params' => $params]);
-            
+
             } else {
 
                 $params = array(
@@ -129,7 +129,7 @@ class TicketController extends Controller
                         'angkatan' => $angkatan,
                     ),
                 );
-    
+
                 // return response()->json(['message' => 'Angkatan lainnya', 'params' => $params]);
             }
         } catch (\Exception $e) {
