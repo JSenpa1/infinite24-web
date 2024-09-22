@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import Footer from './footer.jsx';
 
 const images = import.meta.glob('/public/contact/*.svg', { eager: true });
 
@@ -79,9 +78,6 @@ const contact = () => {
             </a>
           </div>
         </div>
-
-        <Footer/>
- 
     </div>
   )
 }
