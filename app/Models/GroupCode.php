@@ -9,7 +9,7 @@ class GroupCode extends Model
 {
     use HasFactory;
 
-    protected $table = 'KodePos';
+    protected $table = 'group_codes';
 
     public $timestamps = false;
 
