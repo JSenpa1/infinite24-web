@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\GroupCode;
+use App\Models\User;
 use App\Http\Requests\StoreGroupCodeRequest;
 use App\Http\Requests\UpdateGroupCodeRequest;
 use Illuminate\Http\Request;
@@ -18,11 +18,11 @@ class GroupCodeController extends Controller
         try{
             $input_kode = $request->input('input_kode');
             
-            $check_kode = GroupCode::where('kode_grup', strtoupper($input_kode))
-            ->value('id');
+            $check_kode = User::where('group_code', strtoupper($input_kode))
+            ->value('group_name');
             
             if ($check_kode) {
-                return response()->json(['message' => 'Kode Grup: ', 'id' => $check_kode]);
+                return response()->json(['id' => $check_kode]);
             } else {
                 return response()->json(['message' => 'Kode Grup Salah'], 404);
             }
