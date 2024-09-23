@@ -1,15 +1,28 @@
 import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 gsap.from(".logoInfinite", {
     duration: 2.5,
     opacity: 0,
     ease: "power2.out",
+    scrollTrigger: {
+        trigger: ".logoInfinite",
+        start: "top 80%",
+        toggleActions: "play none none none",
+    },
 });
 
 gsap.from(".globe", {
     duration: 2.5,
     opacity: 0,
     ease: "power2.out",
+    scrollTrigger: {
+        trigger: ".globe",
+        start: "top 80%",
+        toggleActions: "play none none none",
+    },
 });
 
 gsap.from(".logo1", {
@@ -18,6 +31,11 @@ gsap.from(".logo1", {
     delay: 0.3,
     ease: "bounce.out",
     y: -100,
+    scrollTrigger: {
+        trigger: ".logo1",
+        start: "top 80%",
+        toggleActions: "play none none none",
+    },
 });
 
 gsap.from(".description", {
@@ -25,6 +43,11 @@ gsap.from(".description", {
     opacity: 0,
     ease: "elastic.out",
     y: -100,
+    scrollTrigger: {
+        trigger: ".description",
+        start: "top 80%",
+        toggleActions: "play none none none",
+    },
 });
 
 gsap.from(".photo1", {
@@ -32,6 +55,11 @@ gsap.from(".photo1", {
     delay: 1,
     ease: "rough({ strength: 1, points: 20, template: none.out, taper: none, randomize: true, clamp: false })",
     opacity: 0,
+    scrollTrigger: {
+        trigger: ".photo1",
+        start: "top 80%",
+        toggleActions: "play none none none",
+    },
 });
 
 gsap.from(".tape1", {
@@ -39,6 +67,11 @@ gsap.from(".tape1", {
     delay: 2,
     ease: "rough({ strength: 1, points: 20, template: none.out, taper: none, randomize: true, clamp: false })",
     opacity: 0,
+    scrollTrigger: {
+        trigger: ".tape1",
+        start: "top 80%",
+        toggleActions: "play none none none",
+    },
 });
 
 gsap.from(".photo2", {
@@ -46,6 +79,11 @@ gsap.from(".photo2", {
     delay: 2.5,
     ease: "rough({ strength: 1, points: 20, template: none.out, taper: none, randomize: true, clamp: false })",
     opacity: 0,
+    scrollTrigger: {
+        trigger: ".photo2",
+        start: "top 80%",
+        toggleActions: "play none none none",
+    },
 });
 
 gsap.from(".tape2", {
@@ -53,13 +91,23 @@ gsap.from(".tape2", {
     delay: 3.5,
     ease: "rough({ strength: 1, points: 20, template: none.out, taper: none, randomize: true, clamp: false })",
     opacity: 0,
+    scrollTrigger: {
+        trigger: ".tape2",
+        start: "top 80%",
+        toggleActions: "play none none none",
+    },
 });
 
 gsap.from(".photo3", {
-    duration: 2,
+    duration: 2.1,
     delay: 4,
     ease: "rough({ strength: 1, points: 20, template: none.out, taper: none, randomize: true, clamp: false })",
     opacity: 0,
+    scrollTrigger: {
+        trigger: ".photo3",
+        start: "top 100%",
+        toggleActions: "play none none none",
+    },
 });
 
 gsap.from(".tape3", {
@@ -67,9 +115,14 @@ gsap.from(".tape3", {
     delay: 5,
     ease: "rough({ strength: 1, points: 20, template: none.out, taper: none, randomize: true, clamp: false })",
     opacity: 0,
+    scrollTrigger: {
+        trigger: ".tape3",
+        start: "top 100%",
+        toggleActions: "play none none none",
+    },
 });
 
-function Home() {
+function AboutUs() {
     return (
         <div className="text-center bg-[url('/aboutus/background.png')]">
             <div className="relative">
@@ -137,7 +190,7 @@ function Home() {
                     <img
                         src="/aboutus/fotopleno1(1).JPG"
                         alt="Foto PPIF"
-                        className="photo2 max-w-[280px] md:max-w-[320px] max-h-[150px] md:max-h-[199px] mt-12 md:mt-16 z-0 border-[8px] md:border-[12px] border-white mx-6 md:mx-12 rotate-[10deg]"
+                        className="photo2 max-w-[280px] md:max-w-[320px] max-h-[150px] md:max-h-[199px] mt-12 mb-8 md:mt-16 z-0 border-[8px] md:border-[12px] border-white mx-6 md:mx-12 rotate-[10deg]"
                     />
                 </div>
                 <div className="relative flex justify-center mt-6 md:mt-0 md:w-full lg:w-1/3">
@@ -146,7 +199,7 @@ function Home() {
                         className="tape3 absolute me-6 ms-4 md:ms-12 z-20 max-w-[50px] md:max-w-[82px]"
                     />
                     <img
-                        src="/aboutus/fotopleno1(3).JPG"
+                        src="/aboutus/fotopleno1(3).jpg"
                         alt="Foto PPIF"
                         className="photo3 max-w-[280px] md:max-w-[320px] mt-5 md:mt-10 max-h-[150px] md:max-h-[199px] border-[8px] md:border-[12px] border-white mx-6 md:mx-12 rotate-[-17deg]"
                     />
@@ -164,4 +217,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default AboutUs;
