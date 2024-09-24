@@ -9,11 +9,11 @@ function Home() {
   return (
     <>
       <Head title='Home' />
-      <div className='overflow-hidden relative h-fit w-screen'>
+      <div className='overflow-clip relative h-fit w-screen'>
         <Navbar />
         <HeroHome />
         <MarqueeWrapper />
-        <AboutUs />
+        <AboutUs id="about-us" /> {/* Ensure AboutUs component has the same ID */}
       </div>
     </>
   )

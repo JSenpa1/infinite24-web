@@ -1,77 +1,81 @@
+import React, { useEffect } from "react";
 import { gsap } from "gsap/dist/gsap";
 
-gsap.from(".logoInfinite", {
-    duration: 2.5,
-    opacity: 0,
-    ease: "power2.out",
-});
+function AboutUs({ id }) {
+    useEffect(() => {
+        // GSAP animations
+        gsap.from(".logoInfinite", {
+            duration: 2.5,
+            opacity: 0,
+            ease: "power2.out",
+        });
 
-gsap.from(".globe", {
-    duration: 2.5,
-    opacity: 0,
-    ease: "power2.out",
-});
+        gsap.from(".globe", {
+            duration: 2.5,
+            opacity: 0,
+            ease: "power2.out",
+        });
 
-gsap.from(".logo1", {
-    duration: 1.1,
-    opacity: 0,
-    delay: 0.3,
-    ease: "bounce.out",
-    y: -100,
-});
+        gsap.from(".logo1", {
+            duration: 1.1,
+            opacity: 0,
+            delay: 0.3,
+            ease: "bounce.out",
+            y: -100,
+        });
 
-gsap.from(".description", {
-    duration: 2.2,
-    opacity: 0,
-    ease: "elastic.out",
-    y: -100,
-});
+        gsap.from(".description", {
+            duration: 2.2,
+            opacity: 0,
+            ease: "elastic.out",
+            y: -100,
+        });
 
-gsap.from(".photo1", {
-    duration: 2,
-    delay: 1,
-    ease: "rough({ strength: 1, points: 20, template: none.out, taper: none, randomize: true, clamp: false })",
-    opacity: 0,
-});
+        gsap.from(".photo1", {
+            duration: 2,
+            delay: 1,
+            ease: "rough({ strength: 1, points: 20, template: none.out, taper: none, randomize: true, clamp: false })",
+            opacity: 0,
+        });
 
-gsap.from(".tape1", {
-    duration: 1,
-    delay: 2,
-    ease: "rough({ strength: 1, points: 20, template: none.out, taper: none, randomize: true, clamp: false })",
-    opacity: 0,
-});
+        gsap.from(".tape1", {
+            duration: 1,
+            delay: 2,
+            ease: "rough({ strength: 1, points: 20, template: none.out, taper: none, randomize: true, clamp: false })",
+            opacity: 0,
+        });
 
-gsap.from(".photo2", {
-    duration: 2,
-    delay: 2.5,
-    ease: "rough({ strength: 1, points: 20, template: none.out, taper: none, randomize: true, clamp: false })",
-    opacity: 0,
-});
+        gsap.from(".photo2", {
+            duration: 2,
+            delay: 2.5,
+            ease: "rough({ strength: 1, points: 20, template: none.out, taper: none, randomize: true, clamp: false })",
+            opacity: 0,
+        });
 
-gsap.from(".tape2", {
-    duration: 1,
-    delay: 3.5,
-    ease: "rough({ strength: 1, points: 20, template: none.out, taper: none, randomize: true, clamp: false })",
-    opacity: 0,
-});
+        gsap.from(".tape2", {
+            duration: 1,
+            delay: 3.5,
+            ease: "rough({ strength: 1, points: 20, template: none.out, taper: none, randomize: true, clamp: false })",
+            opacity: 0,
+        });
 
-gsap.from(".photo3", {
-    duration: 2,
-    delay: 4,
-    ease: "rough({ strength: 1, points: 20, template: none.out, taper: none, randomize: true, clamp: false })",
-    opacity: 0,
-});
+        gsap.from(".photo3", {
+            duration: 2,
+            delay: 4,
+            ease: "rough({ strength: 1, points: 20, template: none.out, taper: none, randomize: true, clamp: false })",
+            opacity: 0,
+        });
 
-gsap.from(".tape3", {
-    duration: 1,
-    delay: 5,
-    ease: "rough({ strength: 1, points: 20, template: none.out, taper: none, randomize: true, clamp: false })",
-    opacity: 0,
-});
+        gsap.from(".tape3", {
+            duration: 1,
+            delay: 5,
+            ease: "rough({ strength: 1, points: 20, template: none.out, taper: none, randomize: true, clamp: false })",
+            opacity: 0,
+        });
+    }, []); // Empty array to run only on mount
 
-function Home() {
     return (
-        <div className="text-center bg-[url('/aboutus/background.png')]">
+        <div id={id} className="text-center bg-[url('/aboutus/background.png')]">
             <div className="relative">
                 <img
                     src="/aboutus/ripped-paper.png"
@@ -83,21 +87,16 @@ function Home() {
                 <img
                     src="/aboutus/infinite.svg"
                     alt="Infinite-banner"
-                    className="logoInfinite flex-none
-                    -mt-60 ms-5 h-[61.38px]
-                    md:-mt-36 md:ms-5 md:h-[108px] md:w-[323.58px]
-                    lg:mt-20 lg:ms-16 lg:h-[108px] lg:w-[323.58px]"
+                    className="logoInfinite flex-none -mt-60 ms-5 h-[61.38px] md:-mt-36 md:ms-5 md:h-[108px] md:w-[323.58px] lg:mt-20 lg:ms-16 lg:h-[108px] lg:w-[323.58px]"
                 />
                 <img
                     src="/aboutus/globe.svg"
                     alt="Globe"
-                    className="globe mt-0 flex-none w-auto
-                    lg:mt-5 lg:h-[323.65px] lg:opacity-100
-                    md:opacity-0 md:h-15 h-[323.65px] opacity-0 "
+                    className="globe mt-0 flex-none w-auto lg:mt-5 lg:h-[323.65px] lg:opacity-100 md:opacity-0 md:h-15 h-[323.65px] opacity-0"
                 />
             </div>
 
-            <div className="absolute inset-x-0 lg:top-72 md:top-56 top-40 flex flex-col lg:flex-row items-center justify-center z-20 space-y-1 lg:space-y-0 lg:space-x-4">
+            <div className="inset-x-0 lg:top-72 md:top-56 top-40 flex flex-col lg:flex-row items-center justify-center z-20 space-y-1 lg:space-y-0 lg:space-x-4">
                 <img
                     src="/aboutus/title1.svg"
                     alt="About Infinite"
@@ -164,4 +163,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default AboutUs;
