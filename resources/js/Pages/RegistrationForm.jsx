@@ -11,7 +11,7 @@ import starsBehindTurtle from "../../../public/assets/stars beside turtle.png";
 import starsBesideGlobe from "../../../public/assets/stars beside globe.png";
 import infinite from "../../../public/assets/infinite.png";
 import ayoJoinInfinite from "../../../public/assets/ayo join infinite.png";
-import paperForm from "../../../public/assets/paper form.png"; 
+import paperForm from "../../../public/assets/paper form.png";
 
 const RegistrationForm = () => {
   const handleSubmit = (event) => {
@@ -27,7 +27,7 @@ const RegistrationForm = () => {
         <img src={polygon} alt="Polygon Background" className="w-full h-full object-cover" />
       </div>
 
-      
+
 
       <div className="relative flex flex-col items-center justify-center min-h-screen p-4">
       <img
@@ -44,7 +44,7 @@ const RegistrationForm = () => {
             <div className="mt-8 flex flex-col items-start">
               <label
                 htmlFor="nama"
-                className="block text-xl font-bold text-[#780000] text-left w-full mb-1 
+                className="block text-xl font-bold text-[#780000] text-left w-full mb-1
                 sm:text-base md:text-lg lg:text-xl"
               >
                 Nama
@@ -62,7 +62,7 @@ const RegistrationForm = () => {
             <div className="flex flex-col items-start">
               <label
                 htmlFor="nim"
-                className="block text-xl font-bold text-[#780000] text-left w-full mb-1 
+                className="block text-xl font-bold text-[#780000] text-left w-full mb-1
                 sm:text-base md:text-lg lg:text-xl"
               >
                 NIM
@@ -81,7 +81,7 @@ const RegistrationForm = () => {
             <div className="flex flex-col items-start">
               <label
                 htmlFor="angkatan"
-                className="block text-xl font-bold text-[#780000] text-left w-full mb-1 
+                className="block text-xl font-bold text-[#780000] text-left w-full mb-1
                 sm:text-base md:text-lg lg:text-xl"
               >
                 Angkatan
