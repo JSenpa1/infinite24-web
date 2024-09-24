@@ -30,6 +30,12 @@ Route::controller(PagesController::class)->group(function() {
     Route::get('/FormPendaftaran', 'FormPendaftaran')->name('FormPendaftaran');
 });
 
+Route::get('/register_form', function (){
+    return Inertia::render('RegistrationForm');
+});
+
+Route::get('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
+
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
 //         'canLogin' => Route::has('login'),
