@@ -3,6 +3,8 @@ import axios from 'axios';
 import paperForm from "../../../public/assets/paper form.png";
 import infinite from "../../../public/assets/infinite.png";
 import polygon from "../../../public/assets/polygon.png";
+import NavBar from '@/Components/Navbar/Navbar';
+import { Link } from '@inertiajs/react'
 
 function FormPendaftaran() {
 
@@ -20,6 +22,9 @@ function FormPendaftaran() {
           ...formData,
           [name]: value
         });
+        console.log(formData.nama);
+        console.log(formData.nim);
+        console.log(formData.angkatan);
     };
 
     const handleSubmit = async (e) => {
@@ -138,16 +143,18 @@ function FormPendaftaran() {
                 </select>
               </div>
               <div className="mt-8 p-4 flex items-center gap-7 justify-center">
-                <button
-                  type="button"
-                  className="px-6 py-2.5 bg-white border border-[#780000] text-[#780000] font-medium text-xs leading-tight uppercase rounded shadow-lg hover:bg-gray-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out
-                  sm:text-xs sm:px-4 sm:py-2 md:text-sm md:px-5 md:py-2.5 lg:text-base lg:px-6 lg:py-2.5"
-                  style={{
-                    boxShadow: "4px 4px 0px #000000",
-                  }}
-                >
-                  KEMBALI
-                </button>
+                <Link href="/">
+                    <button
+                    type="button"
+                    className="px-6 py-2.5 bg-white border border-[#780000] text-[#780000] font-medium text-xs leading-tight uppercase rounded shadow-lg hover:bg-gray-200 focus:outline-none focus:ring-0 transition duration-150 ease-in-out
+                    sm:text-xs sm:px-4 sm:py-2 md:text-sm md:px-5 md:py-2.5 lg:text-base lg:px-6 lg:py-2.5"
+                    style={{
+                        boxShadow: "4px 4px 0px #000000",
+                    }}
+                    >
+                    KEMBALI
+                    </button>
+                </Link>
                 <button
                   type="submit"
                   className="px-6 py-2.5 bg-[#780000] text-white font-medium text-xs leading-tight uppercase rounded shadow-none hover:bg-[#990000] focus:bg-[#990000] focus:shadow-lg focus:outline-none focus:ring-0 transition duration-150 ease-in-out
