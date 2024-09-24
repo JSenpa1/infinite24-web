@@ -10,13 +10,18 @@ use Inertia\Inertia;
 Route::get('/', [PagesController::class, 'home'])->name('home');
 Route::get('/about', [PagesController::class, 'about'])->name('about');
 
-Route::get('/game', function (){
+Route::get('/game', function () {
     return Inertia::render('Game/Index');
+});
+
+// pos2
+Route::get('/game/pos2', function () {
+    return Inertia::render('Game/pos2');
 });
 
 Route::get('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
 
-Route::controller(PagesController::class)->group(function() {
+Route::controller(PagesController::class)->group(function () {
     Route::get('/', 'home');
     Route::get('/FormPendaftaran', 'FormPendaftaran')->name('FormPendaftaran');
 });
@@ -40,4 +45,4 @@ Route::controller(PagesController::class)->group(function() {
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
