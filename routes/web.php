@@ -12,6 +12,10 @@ Route::get('/game', function (){
     return Inertia::render('Game');
 });
 
+Route::get('/register_form', function (){
+    return Inertia::render('RegistrationForm');
+});
+
 Route::get('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
 
 // Route::get('/', function () {
