@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class GroupCodeController extends Controller
 {
-    
+
     public function checkKodeGrup(Request $request) {
         $request->validate([
             'input_kode' => 'required|string'
@@ -17,10 +17,10 @@ class GroupCodeController extends Controller
 
         try{
             $input_kode = $request->input('input_kode');
-            
+
             $check_kode = User::where('group_code', strtoupper($input_kode))
             ->value('group_name');
-            
+
             if ($check_kode) {
                 return response()->json(['id' => $check_kode]);
             } else {
@@ -55,32 +55,32 @@ class GroupCodeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(GroupCode $groupCode)
-    {
-        //
-    }
+    // public function show(GroupCode $groupCode)
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(GroupCode $groupCode)
-    {
-        //
-    }
+    // public function edit(GroupCode $groupCode)
+    // {
+    //     //
+    // }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateGroupCodeRequest $request, GroupCode $groupCode)
-    {
-        //
-    }
+    // public function update(UpdateGroupCodeRequest $request, GroupCode $groupCode)
+    // {
+    //     //
+    // }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(GroupCode $groupCode)
-    {
-        //
-    }
+    // public function destroy(GroupCode $groupCode)
+    // {
+    //     //
+    // }
 }

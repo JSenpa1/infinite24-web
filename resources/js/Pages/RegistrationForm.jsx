@@ -12,6 +12,7 @@ import starsBesideGlobe from "../../../public/assets/stars beside globe.png";
 import infinite from "../../../public/assets/infinite.png";
 import ayoJoinInfinite from "../../../public/assets/ayo join infinite.png";
 import paperForm from "../../../public/assets/paper form.png";
+import axios from 'axios';
 
 const RegistrationForm = () => {
   const handleSubmit = (event) => {
