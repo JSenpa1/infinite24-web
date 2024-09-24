@@ -125,7 +125,7 @@ const RegistrationForm = () => {
                 type="submit"
                 className="px-6 py-2.5 bg-[#780000] text-white font-medium text-xs leading-tight uppercase rounded shadow-none hover:bg-[#990000] focus:bg-[#990000] focus:shadow-lg focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                 style={{
-                  boxShadow: "4px 4px 0px #000000", 
+                  boxShadow: "4px 4px 0px #000000",
                 }}
               >
                 LANJUT PEMBAYARAN
