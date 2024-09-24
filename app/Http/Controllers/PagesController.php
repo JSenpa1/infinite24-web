@@ -39,9 +39,9 @@ class PagesController extends Controller
         return Inertia::render('RegistrationForm');
     }
 
-    public function contacts() {
-        return Inertia::render('Posts/Contact');
-    }
+    // public function contacts() {
+    //     return Inertia::render('Posts/Contact');
+    // }
 
     public function CheckRegistration(Request $request){
         $user = User::where('group_code', $request->input('code'))->first();

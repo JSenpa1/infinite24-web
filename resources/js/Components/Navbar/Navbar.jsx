@@ -17,7 +17,7 @@ function Navbar() {
         { name: "HOME", link: "/" },
         { name: "ABOUT", link: "#about-us" }, // Updated link
         { name: "TIMELINE", link: "#" },
-        { name: "SUPPORT", link: "#" },
+        { name: "SUPPORT", link: "#contact-us" },
     ];
 
     const [open, setOpen] = useState(false);

@@ -10,7 +10,10 @@ use Inertia\Inertia;
 // Route::get('/', [PagesController::class, 'home'])->name('home');
 Route::get('/about', [PagesController::class, 'about'])->name('about');
 Route::get('/', [PagesController::class, 'home'])->name('home');
-Route::get('/contact', [PagesController::class, 'contacts'])->name('contacts');
+// Route::get('/contact', [PagesController::class, 'contacts']);
+Route::get('/contactUs', function() {
+    return Inertia::render('Posts/Contact');
+});
 
 // Route::get('/game', function (){
 //     return Inertia::render('Game/Index', [

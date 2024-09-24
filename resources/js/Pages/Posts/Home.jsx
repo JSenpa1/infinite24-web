@@ -4,6 +4,8 @@ import Navbar from '@/Components/Navbar/Navbar'
 import { Head } from '@inertiajs/react'
 import React from 'react'
 import AboutUs from "@/Components/AboutUs/AboutUs"
+import ContactUs from '@/Components/ContactUs/Contact'
+import Footer from '@/Components/Navbar-Footer/Footer'
 
 function Home() {
   return (
@@ -13,7 +15,9 @@ function Home() {
         <Navbar />
         <HeroHome />
         <MarqueeWrapper />
-        <AboutUs id="about-us" /> {/* Ensure AboutUs component has the same ID */}
+        <AboutUs id="about-us" />
+        <ContactUs id="contact-us" />
+        <Footer />
       </div>
     </>
   )
