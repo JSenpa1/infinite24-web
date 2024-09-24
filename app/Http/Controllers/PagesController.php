@@ -14,7 +14,7 @@ class PagesController extends Controller
     public function home(){
         return Inertia::render('Posts/Home');
     }
-    
+
 
     public function CheckUser(){
         if(session()->has('user')){
@@ -37,7 +37,7 @@ class PagesController extends Controller
 
     public function CheckRegistration(Request $request){
         $user = User::where('group_code', $request->input('code'))->first();
-        
+
         if($user){
             session(['user' => $user->group_code]);
             return back();
@@ -129,7 +129,7 @@ class PagesController extends Controller
     public function FormPendaftaran() {
         return Inertia::render('FormPendaftaran');
     }
-    
+
     public function about(){
         return Inertia::render('Posts/AboutUs');
     }
