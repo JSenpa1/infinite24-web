@@ -8,7 +8,7 @@ export default function Index(){
         <div className="bg-dark-red">
             <NavbarIndex />
             <div className="container flex justify-center items-center mx-auto min-h-screen">
-                <BoxToInputCode title="Kode Kelompok" subtitle="Masukkan kode yang diberikan PIC" action="/game/check-status"/>
+                <BoxToInputCode title="Kode Kelompok" action="/game/check-status"/>
             </div>
         </div>
     );

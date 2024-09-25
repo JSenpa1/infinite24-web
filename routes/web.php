@@ -14,6 +14,10 @@ Route::get('/game', function (){
     return Inertia::render('Game/Index');
 });
 
+Route::get('/game/1', function (){
+    return Inertia::render('Game/Pos1');
+});
+
 Route::get('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
 
 Route::controller(PagesController::class)->group(function() {
