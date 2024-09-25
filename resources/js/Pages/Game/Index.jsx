@@ -1,10 +1,10 @@
 import Axios from 'axios';
 import Alert from '@mui/material/Alert';
-import Logo from '../../../assets/logo.png';
+import Logo from '../../../../public/Assets/logo.png';
 
 function Index({ error }){
     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-    
+
     return(
         <div className="bg-cream montserrat-semibold">
             <div className="container flex justify-center items-center mx-auto min-h-screen">

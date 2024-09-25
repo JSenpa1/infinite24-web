@@ -9,16 +9,16 @@ const getImageByName = (name) => {
 
 const sponsor = getImageByName('sponsor');
 
-function HomePage4() {
+function HomePage4({ id }) {
   return (
-    <div className="min-h-screen bg-grid-hero py-8 px-4">
+    <div id={id} className="min-h-screen bg-grid-hero py-8 px-4">
       <div className="flex justify-center items-center mt-32">
         <img src={sponsor} className="max-w-full h-auto" alt="Sponsor" />
       </div>
 
       <div className="flex justify-center items-center mt-14">
         <p className="text-dark-blue text-xl max-w-md font-bold text-center">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum libero risus, 
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum libero risus,
           posuere id porttitor et, pretium et neque. Praesent ex nunc.
         </p>
       </div>

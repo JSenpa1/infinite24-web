@@ -16,7 +16,8 @@ function Navbar() {
     const Links = [
         { name: "HOME", link: "/" },
         { name: "ABOUT", link: "#about-us" }, // Updated link
-        { name: "TIMELINE", link: "#" },
+        { name: "TIMELINE", link: "#timeline" },
+        { name: "SPONSOR", link: "#sponsor" },
         { name: "SUPPORT", link: "#contact-us" },
     ];
 

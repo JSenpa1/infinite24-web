@@ -18,8 +18,8 @@ function Home() {
         <HeroHome />
         <MarqueeWrapper />
         <AboutUs id="about-us" />
-        <HomePage3 />
-        <HomePage4 />
+        <HomePage3 id="timeline" />
+        <HomePage4 id="sponsor" />
         <ContactUs id="contact-us" />
         <Footer />
       </div>
