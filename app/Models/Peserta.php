@@ -5,17 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pos3 extends Model
+class Peserta extends Model
 {
     use HasFactory;
 
-    protected $table = 'pos3';
+    protected $table = 'peserta';
 
     public $timestamps = false;
 
     protected $fillable = [
         'id',
-        'jawaban',
-        'clock',
+        'nama',
+        'nim',
+        'angkatan',
+        'regis_ulang'
     ];
 }

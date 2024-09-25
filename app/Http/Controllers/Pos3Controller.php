@@ -31,6 +31,31 @@ class Pos3Controller extends Controller
         }
     }
 
+    public function fetchClock(Request $request){
+        $request->validate([
+            'id' => 'required|integer'
+        ]);
+
+        try{
+            $id = $request->input('id');
+
+            if (!empty($id)) {
+                $clock = Pos3::where('id', $id)->value('clock');
+                
+                if ($clock) {
+                    return response()->json(['clock' => $clock]);
+                } else {
+                    return response()->json(['message' => 'id salah'], 404);
+                }
+            } else {
+                return response()->json(['message' => 'id not found'], 400);
+            }
+        }catch(\Exception $e){
+            return response()->json(['message' => 'Error: ' . $e->getMessage()], 500);
+        }
+        
+    }
+
     public function index()
     {
         //

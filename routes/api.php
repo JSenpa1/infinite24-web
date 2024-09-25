@@ -11,6 +11,7 @@ use App\Http\Controllers\Pos2Part1Controller;
 use App\Http\Controllers\GroupCodeController;
 use App\Http\Controllers\Pos1Controller;
 use App\Http\Controllers\Pos3Controller;
+use App\Http\Controllers\PesertaController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -28,3 +29,7 @@ Route::get('/checkKodeGrup', [GroupCodeController::class, 'checkKodeGrup']);
 
 Route::get('/checkJawabanPos1', [Pos1Controller::class, 'checkJawaban']);
 Route::get('/checkJawabanPos3', [Pos3Controller::class, 'checkJawaban']);
+Route::get('/fetchClockPos3', [Pos3Controller::class, 'fetchClock']);
+
+Route::get('/inputPeserta', [PesertaController::class, 'inputPeserta']);
+Route::get('/updateRegis', [PesertaController::class, 'updateRegis']);
