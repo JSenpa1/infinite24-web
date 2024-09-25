@@ -1,5 +1,6 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
+import textShadowPlugin from '@designbycode/tailwindcss-text-shadow';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -23,12 +24,21 @@ export default {
                 'white': '#FAFAFA',
                 'dark-blue': '#003049',
                 'light-blue': '#669BBC',
+                'dark': '#000000',
             },
             backgroundImage: {
-                'grid-hero': "url('/public/Assets/Images/RowGrid.svg')",
+                'grid-hero': "url('/public/assets/grid.svg')",
               }
         },
     },
 
-    plugins: [forms],
+    plugins: [
+        forms,
+        textShadowPlugin({
+            shadowColor: 'rgba(0, 0, 0, 0.95)',
+            shadowBlur: '0px',
+            shadowOffsetX: '4px',
+            shadowOffsetY: '3px',
+        }),
+    ],
 };

@@ -1,6 +1,8 @@
 import HeroHome from '@/Components/Home/HeroHome'
 import MarqueeWrapper from '@/Components/Home/MarqueeWrapper'
 import Navbar from '@/Components/Navbar/Navbar'
+import HomePage3 from '@/Components/Home/HomePage3'
+import HomePage4 from '@/Components/Home/HomePage4'
 import { Head } from '@inertiajs/react'
 import React from 'react'
 import AboutUs from "@/Components/AboutUs/AboutUs"
@@ -16,6 +18,8 @@ function Home() {
         <HeroHome />
         <MarqueeWrapper />
         <AboutUs id="about-us" />
+        <HomePage3 />
+        <HomePage4 />
         <ContactUs id="contact-us" />
         <Footer />
       </div>
