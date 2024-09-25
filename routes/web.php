@@ -30,14 +30,18 @@ Route::post('/game/{id}/confirmation', [PagesController::class, 'CheckAnswer'])-
 //     return Inertia::render('Game/InputCode');
 // });
 
+Route::get('/PembayaranDone', function() {
+    return Inertia::render('PembayaranDone');
+});
+
 Route::controller(PagesController::class)->group(function() {
     Route::get('/', 'home');
     Route::get('/FormPendaftaran', 'FormPendaftaran')->name('FormPendaftaran');
 });
 
-Route::get('/register_form', function (){
-    return Inertia::render('RegistrationForm');
-});
+// Route::get('/register_form', function (){
+//     return Inertia::render('RegistrationForm');
+// });
 
 Route::get('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
 

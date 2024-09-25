@@ -58,7 +58,7 @@ function FormPendaftaran() {
                 /* You may add your own implementation here */
                 alert("Pembayaran Berhasil"); console.log(result);
                 handleInputData();
-
+                window.location.href='/PembayaranDone';
               },
               onPending: function(result){
                 /* You may add your own implementation here */
