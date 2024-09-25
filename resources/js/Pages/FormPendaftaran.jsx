@@ -95,7 +95,7 @@ function FormPendaftaran() {
                   NIM
                 </label>
                 <input
-                  type="text"
+                  type="number"
                   id="nim"
                   name="nim"
                   value={formData.nim}
