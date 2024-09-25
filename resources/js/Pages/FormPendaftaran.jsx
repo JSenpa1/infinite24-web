@@ -136,10 +136,10 @@ function FormPendaftaran() {
                   sm:text-xs md:text-sm lg:text-base"
                 >
                   <option value="">Pilih tahun angkatan</option>
-                  <option value="2023">2023</option>
+                  <option value="2024">2023</option>
                   <option value="2022">2022</option>
                   <option value="2021">2021</option>
-                  <option value="2020">2020</option>
+                  <option value="2020">lainnya</option>
                 </select>
               </div>
               <div className="mt-8 p-4 flex items-center gap-7 justify-center">
