@@ -41,6 +41,10 @@ Route::get('/register_form', function (){
 
 Route::get('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
 
+Route::get('/coming-soon', function() {
+    return Inertia::render('Posts/Welcome');
+});
+
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
 //         'canLogin' => Route::has('login'),

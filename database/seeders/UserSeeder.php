@@ -48,7 +48,7 @@ class UserSeeder extends Seeder
 
         foreach ($groupCode as $index => $group) {
             User::create([
-                'id' => $index + 1, 
+                // 'id' => $index + 1, 
                 'group_code' => $group,
                 'group_name' => $index + 1,
             ]);

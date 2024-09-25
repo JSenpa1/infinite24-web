@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from '@inertiajs/react'
 
 const images = import.meta.glob('/public/contact/*.svg', { eager: true });
 
@@ -17,8 +18,10 @@ function Footer() {
         <div className='bg-[#003049] w-full md:h-[178px] h-[200px] flex flex-wrap justify-center items-center p-5 px-10 md:gap-8'>
           <img src={infinitelogo} className='md:w-[250px] w-[100px]'/>
           <img src={umnlogo} className='md:w-[149px] w-[100px]'/>
-          <img src={placeholder} className='ml-10'/>
-          <div className="text-[rgb(253,240,245)] text-max-[24px] opacity-80 md:absolute md:bottom-0">Copyright &copy; 2024 INFINITE. All Rights Reserved.</div>
+          <Link href="coming-soon">
+            <img src={placeholder} className='ml-10 w-[50px] md:w-[100px]'/>
+          </Link>
+          <div className="text-[rgb(253,240,245)] text-[14px] md:text-[24px] opacity-80 md:absolute md:bottom-0">Copyright &copy; 2024 INFINITE. All Rights Reserved.</div>
         </div>
     </div>
   )

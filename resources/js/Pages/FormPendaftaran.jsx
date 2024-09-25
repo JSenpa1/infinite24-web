@@ -3,7 +3,7 @@ import axios from 'axios';
 import paperForm from "../../../public/assets/paper form.png";
 import infinite from "../../../public/assets/infinite.png";
 import polygon from "../../../public/assets/polygon.png";
-import NavBar from '@/Components/Navbar/Navbar';
+import NavBar from '@/Components/Navbar/NavbarFixed';
 import { Link } from '@inertiajs/react'
 
 function FormPendaftaran() {
@@ -27,6 +27,21 @@ function FormPendaftaran() {
         console.log(formData.angkatan);
     };
 
+    const handleInputData = async () => {
+      try {
+        const res2 = await axios.get("/api/inputPeserta", {
+          params: {
+            nama: formData.nama,
+            nim: formData.nim,
+            angkatan: formData.angkatan,
+          }
+        });
+        console.log(res2.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('Submitted Form: ', formData);
@@ -36,10 +51,28 @@ function FormPendaftaran() {
                 nim: formData.nim,
                 angkatan: formData.angkatan,
             });
-
             setToken(res.data);
             console.log(token);
-            window.snap.pay(token);
+            window.snap.pay(token, {
+              onSuccess: function(result){
+                /* You may add your own implementation here */
+                alert("Pembayaran Berhasil"); console.log(result);
+                handleInputData();
+
+              },
+              onPending: function(result){
+                /* You may add your own implementation here */
+                alert("Menunggu Pembayaran!"); console.log(result);
+              },
+              onError: function(result){
+                /* You may add your own implementation here */
+                alert("Pembayaran Gagal"); console.log(result);
+              },
+              onClose: function(){
+                /* You may add your own implementation here */
+                alert('Kamu belum selesai bayar :(');
+              }
+            });
         } catch (error) {
             console.log(error);
         }
@@ -47,12 +80,13 @@ function FormPendaftaran() {
 
     return (
         <div className="relative min-h-screen">
+        <NavBar />
         <div className="absolute top-0 left-0 right-0 h-1/2 bg-[#003049]"></div>
         <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-[#003049]">
           <img src={polygon} alt="Polygon Background" className="w-full h-full object-cover" />
         </div>
 
-
+        
 
         <div className="relative flex flex-col items-center justify-center min-h-screen p-4">
         <img
@@ -136,8 +170,9 @@ function FormPendaftaran() {
                   sm:text-xs md:text-sm lg:text-base"
                 >
                   <option value="">Pilih tahun angkatan</option>
-                  <option value="2024">2023</option>
-                  <option value="2022">2022</option>
+                  <option value="2024">2024</option>
+                  <option value="2022">2023</option>
+                  <option value="2021">2022</option>
                   <option value="2021">2021</option>
                   <option value="2020">lainnya</option>
                 </select>
