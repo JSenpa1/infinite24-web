@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pos3', function (Blueprint $table) {
+        Schema::create('peserta', function (Blueprint $table) {
             $table->id();
-            $table->string('jawaban');
-            $table->string('clock');
+            $table->string('nama');
+            $table->string('nim');
+            $table->string('angkatan');
+            $table->boolean('regis_ulang')->default(false);
         });
     }
 
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pos3s');
+        Schema::dropIfExists('peserta');
     }
 };
