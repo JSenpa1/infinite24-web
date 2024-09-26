@@ -23,13 +23,13 @@ function HeroHome() {
             <div className='flex md:flex-row flex-col items-center md:justify-normal justify-center relative top-[120px] md:left-20 p-8 '>
                 <div className='flex flex-col md:w-[55%] w-[90%]'>
                     <h1 className='text-dark-blue md:text-[60px] text-[50px] leading-normal font-extrabold'>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Ignite Innovation, Be The Catalyze
                     </h1>
                     <p className='text-dark-blue font-semibold mt-5'>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quam consequatur veritatis natus voluptatem deleniti enim voluptatibus delectus numquam amet suscipit, quod debitis tenetur accusantium nesciunt mollitia, dolores dolor officia!
+                       Halo Teman-Teman!!!
                     </p>
                     <p className='mt-5 text-dark-blue font-semibold'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, doloremque aliquid? Nobis deserunt quia temporibus!
+                    Selamat datang di Acara Infinite! Kita disini berkumpul bersama untuk merayakan perjalanan kita sebagai Mahasiswa Informatika. Ini adalah momen spesial di mana kita bisa bonding dengan teman-teman dari berbagai angkatan, berbagi cerita, dan tentu saja, bersenang-senang!
                     </p>
                     <div className='pt-10 flex md:flex-row flex-col md:gap-[60px] gap-[30px] items-center'>
                         <TimelineButton />

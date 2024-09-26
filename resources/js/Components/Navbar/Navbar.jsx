@@ -22,7 +22,8 @@ function Navbar() {
     ];
 
     const [open, setOpen] = useState(false);
-    const [navBackground, setNavBackground] = useState("bg-transparent");
+    // const [navBackground, setNavBackground] = useState("bg-transparent");
+    const [navBackground, setNavBackground] = useState("bg-grid-hero bg-white bg-opacity-100 shadow-[0px_-10px_18px_gray]");
     const [textColor, setTextColor] = useState("text-black");
     const [isScrollUp, setIsScrollUp] = useState(true);
 
@@ -32,7 +33,7 @@ function Navbar() {
                 setNavBackground("bg-grid-hero bg-white bg-opacity-100 shadow-[0px_-10px_18px_gray]");
                 setTextColor("text-slate-700");
             } else {
-                setNavBackground("bg-transparent");
+                setNavBackground("bg-grid-hero bg-white bg-opacity-100 shadow-[0px_-10px_18px_gray]");
                 setTextColor("text-black");
             }
         };
