@@ -85,7 +85,7 @@ function FormPendaftaran() {
     }
 
     return (
-        <div className="relative min-h-screen">
+        <div className="relative h-screen">
         <NavBar />
         <div className="absolute top-0 left-0 right-0 h-1/2 bg-[#003049]"></div>
         <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-[#003049]">
@@ -98,21 +98,21 @@ function FormPendaftaran() {
 
         <img src={rocketCursor} className='absolute bottom-52 left-52 hidden md:block' />
 
-        <img src={turtle} className='absolute bottom-0 left-0 hidden md:block' />
+        <img src={turtle} className='absolute bottom-3 left-0 hidden md:block' />
 
         <img src={yakaliGaIkutan} className='absolute top-40 right-0 hidden md:block' />
 
-        <img src={v4} className='absolute top-96 right-0 hidden md:block' />
+        <img src={v4} className='absolute bottom-3 right-3 hidden md:block' />
 
-        <img src={globe} className='absolute bottom-0 right-32 hidden md:block' />
+        <img src={globe} className='absolute bottom-3 right-32 hidden md:block' />
 
         <img
               src={infinite}
               alt="Infinite"
-              className="flex justify-center items-center mt-20 z-20 w-72 md:absolute md:top-16"
+              className="flex justify-center items-center mt-20 z-20 w-72 md:absolute md:top-14"
         />
           <div
-            className="w-full max-w-xl min-h-[450px] p-8 rounded-lg shadow-lg bg-white z-10 relative bg-no-repeat bg-cover md:mt-14"
+            className="w-full max-w-xl min-h-[450px] p-8 rounded-lg shadow-lg bg-white z-10 relative bg-no-repeat bg-cover md:mt-36"
             style={{ backgroundImage: `url(${paperForm})` }}
           >
 
