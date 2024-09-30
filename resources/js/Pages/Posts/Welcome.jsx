@@ -15,7 +15,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
         <>
             <div className='w-screen h-screen bg-black flex flex-col justify-center items-center'>
-                <div className='text-white text-[160px] font-extrabold fade-in'><span ref={glitch.ref}><span className='glow'>INFI</span><span className='text-orange-700 glow-orange'>N</span><span className='glow'>ITE</span></span></div>
+                <div className='text-white md:text-[160px] text-[40px] font-extrabold fade-in'><span ref={glitch.ref}><span className='glow'>INFI</span><span className='text-orange-700 glow-orange'>N</span><span className='glow'>ITE</span></span></div>
                 <TypeAnimation
                     sequence={[
                         'see you soon 24',

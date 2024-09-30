@@ -8,8 +8,8 @@
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
         <script type="text/javascript"
-        src="https://app.sandbox.midtrans.com/snap/snap.js"
-        data-client-key="SB-Mid-client-d26hexCBIFTIOrnl"></script>
+        src="https://app.midtrans.com/snap/snap.js"
+        data-client-key="Mid-client-M9qkZOIbj2L51U05"></script>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
