@@ -59,8 +59,7 @@ const HomePage3 = ({ id }) => {
       <div className="flex flex-col justify-center items-center">
       <img src={timeline} className='absolute w-[45%] sm:w-[45%] md:w-[30%] lg:w-[20%] size-80 top-[8%]' alt="" />
       <p className="text-dark-red text-xl max-w-md font-bold mx-auto text-center">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum libero risus,
-          posuere id porttitor et, pretium et neque. Praesent ex nunc.
+          Berikut Tanggal dan Waktu acara kita, jangan sampai lupa ya guyss
         </p>
       </div>
 

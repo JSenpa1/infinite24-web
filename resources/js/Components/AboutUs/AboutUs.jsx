@@ -109,12 +109,7 @@ function AboutUs({ id }) {
                 />
             </div>
             <div className="description text-white flex font-[600] justify-start text-start mt-0 md:mt-10 mb-10 text-xl px-8 lg:text-center lg:mt-9 lg:text-2xl lg:px-[229px]">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum libero risus, posuere id porttitor et, pretium et
-                neque. Praesent ex nunc, tempus dignissim mauris id, vehicula
-                fermentum odio. Fusce quis volutpat enim. Vivamus eu dapibus
-                ligula. Etiam erat metus, commodo nec elementum varius, euismod
-                sit amet erat.
+            Infinite adalah malam puncak yang wajib dihadiri oleh seluruh Mahasiswa Baru Informatika UMN angkatan 2024. Acara ini merupakan syarat kelulusan dari perkenalan prodi Informatika. Bergabunglah dalam momen bonding yang tak terlupakan dengan teman-teman seangkatan serta mahasiswa dari angkatan lain. Ini adalah kesempatan emas untuk memperluas jaringan dan berinteraksi dengan alumni yang telah sukses. Dihadiri dengan beragam permainan seru dan aktivitas menarik, Infinite akan memastikan bahwa kalian tetap excited dan terlibat sepanjang acara. Mari kita ciptakan kenangan indah dan hubungan yang kuat di malam yang penuh keceriaan ini!
             </div>
             <div className="flex flex-wrap justify-center md:mt-6 lg:px-16">
                 <div className="relative flex justify-center mt-6 md:mt-0 md:w-1/2 lg:w-1/3">
