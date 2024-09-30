@@ -4,6 +4,12 @@ import paperForm from "../../../public/assets/paper form.png";
 import infinite from "../../../public/assets/infinite.png";
 import polygon from "../../../public/assets/polygon.png";
 import NavBar from '@/Components/Navbar/NavbarFixed';
+import infiniteLogo from "../../../public/assets/infinite is here.png";
+import rocketCursor from "../../../public/assets/rocket cursor.png";
+import turtle from "../../../public/assets/turtle.png";
+import yakaliGaIkutan from "../../../public/assets/yakali ga ikutan.png";
+import v4 from "../../../public/assets/V.4.png";
+import globe from "../../../public/assets/globe.png";
 import { Link } from '@inertiajs/react'
 
 function FormPendaftaran() {
@@ -85,17 +91,28 @@ function FormPendaftaran() {
         <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-[#003049]">
           <img src={polygon} alt="Polygon Background" className="w-full h-full object-cover" />
         </div>
-
         
+        <div className="relative flex flex-col items-center justify-center min-h-screen p-4 mt-4">
 
-        <div className="relative flex flex-col items-center justify-center min-h-screen p-4">
+        <img src={infiniteLogo} className='absolute top-70 left-8 hidden md:block' />
+
+        <img src={rocketCursor} className='absolute bottom-52 left-52 hidden md:block' />
+
+        <img src={turtle} className='absolute bottom-0 left-0 hidden md:block' />
+
+        <img src={yakaliGaIkutan} className='absolute top-40 right-0 hidden md:block' />
+
+        <img src={v4} className='absolute top-96 right-0 hidden md:block' />
+
+        <img src={globe} className='absolute bottom-0 right-32 hidden md:block' />
+
         <img
               src={infinite}
               alt="Infinite"
-              className="flex justify-center items-center mt-20 z-20 w-72"
-          />
+              className="flex justify-center items-center mt-20 z-20 w-72 md:absolute md:top-16"
+        />
           <div
-            className="w-full max-w-xl min-h-[450px] p-8 rounded-lg shadow-lg bg-white z-10 relative bg-no-repeat bg-cover"
+            className="w-full max-w-xl min-h-[450px] p-8 rounded-lg shadow-lg bg-white z-10 relative bg-no-repeat bg-cover md:mt-14"
             style={{ backgroundImage: `url(${paperForm})` }}
           >
 

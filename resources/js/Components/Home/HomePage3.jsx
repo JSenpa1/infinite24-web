@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import backgroundKertas from '../../../../public/Assets/background1.png';
 
 const images = import.meta.glob('/public/assets/*.svg', { eager: true });
 
@@ -42,8 +43,10 @@ const HomePage3 = ({ id }) => {
   }, []);
 
   return (
-    <div id={id} className="min-h-[1200px] flex flex-col justify-center items-center p-6 relative bg-cover bg-center"
-      style={{ backgroundImage: `url(${background1})` }}>
+    <div id={id} className="min-h-[1500px] flex flex-col justify-center items-center p-6 relative bg-cover bg-center"
+      style={{ backgroundImage: `url(${background1})` }}
+    >
+      {/* // style={{ backgroundImage: `url(${background1})` }}  min-h-[1200px] */}
 
       <div className="absolute flex justify-center items-center">
         <img src={doodle} className='size-[35%] ml-[330px] mt-[-170px] sm:ml-[900px] sm:mt-[-220px] md:ml-[450px] md:mt-[-320px] lg:ml-[900px] lg:mt-[-220px]' alt="" />
@@ -83,7 +86,7 @@ const HomePage3 = ({ id }) => {
             ))}
           </div>
           <p className="mt-10 text-sm md:text-base text-cream">
-            Registration is open from <span className="font-bold">26 September 2024</span> -{" "}
+            Registration is open from <span className="font-bold">1 October 2024</span> -{" "}
             <span className="font-bold">20 October 2024</span>
           </p>
         </div>
