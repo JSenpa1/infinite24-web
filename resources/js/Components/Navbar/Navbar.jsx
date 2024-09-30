@@ -17,7 +17,7 @@ function Navbar() {
         { name: "HOME", link: "/" },
         { name: "ABOUT", link: "#about-us" }, // Updated link
         { name: "TIMELINE", link: "#timeline" },
-        { name: "SPONSOR", link: "#sponsor" },
+        // { name: "SPONSOR", link: "#sponsor" },
         { name: "SUPPORT", link: "#contact-us" },
     ];
 

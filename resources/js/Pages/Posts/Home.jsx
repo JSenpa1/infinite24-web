@@ -12,14 +12,13 @@ import Footer from '@/Components/Navbar-Footer/Footer'
 function Home() {
   return (
     <>
-      <Head title='Home' />
+      <Head title='Home'/>
       <div className='overflow-clip relative h-fit w-screen'>
         <Navbar />
         <HeroHome />
         <MarqueeWrapper />
         <AboutUs id="about-us" />
         <HomePage3 id="timeline" />
-        <HomePage4 id="sponsor" />
         <ContactUs id="contact-us" />
         <Footer />
       </div>
@@ -27,3 +26,5 @@ function Home() {
   )
 }
 export default Home;
+
+{/* <HomePage4 id="sponsor" /> */}
