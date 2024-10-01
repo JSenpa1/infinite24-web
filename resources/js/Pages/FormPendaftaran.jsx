@@ -55,6 +55,13 @@ function FormPendaftaran() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('Submitted Form: ', formData);
+
+        if (formData.email && !formData.email.endsWith('@student.umn.ac.id')) {
+          alert('Email must be a student email (e.g., yourname@student.umn.ac.id)');
+          window.location.reload(); // Refresh the page
+          return; // Exit the function
+      }
+
         try {
             const res = await axios.post("/api/mid", {
                 nama: formData.nama,
