@@ -65,7 +65,7 @@ const HomePage3 = ({ id }) => {
 
       <div className="relative z-10 text-center mt-32 md:mt-20 w-[85%] md:w-[60%]">
         <div className="bg-dark-red border-4 border-dark rounded-3xl shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] w-full max-w-m pt-10 pb-10 px-2 sm:pt-10 sm:pb-10">
-          <h1 className="text-md sm:text-sm md:text-lg font-bold text-cream">NOVEMBER 3</h1>
+          <h1 className="text-md sm:text-sm md:text-lg font-bold text-cream">NOVEMBER 2</h1>
           <h1 className="text-5xl md:text-7xl font-extrabold my-3 text-shadow text-cream">MALAM PUNCAK</h1>
           <div className="flex justify-center gap-2 sm:gap-4 my-4">
           {Object.entries(timeLeft).map(([label, value], index) => (
