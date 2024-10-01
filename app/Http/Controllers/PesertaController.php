@@ -22,18 +22,24 @@ class PesertaController extends Controller
             $angkatan = $request->input('angkatan');
             $email = $request->input('email');
 
-            if(str_ends_with($email, '@student.umn.ac.id')){
-                $peserta = Peserta::create([
-                    'nama' => $nama,
-                    'nim' => $nim,
-                    'angkatan' => $angkatan,
-                    'email' => $email,
-                    'regis_ulang' => false
-                ]);
-    
-                return response()->json(['message' => 'Berhasil Diinput'], 200);
+            $exist = Peserta::where('email', $email)->first();
+
+            if($exist){
+                return response()->json(['message' => 'Email sudah terdaftar'], 404);
             }else{
-                return response()->json(['message' => 'Invalid Email'], 404);
+                if(str_ends_with($email, '@student.umn.ac.id')){
+                    $peserta = Peserta::create([
+                        'nama' => $nama,
+                        'nim' => $nim,
+                        'angkatan' => $angkatan,
+                        'email' => $email,
+                        'regis_ulang' => false
+                    ]);
+        
+                    return response()->json(['message' => 'Berhasil Diinput'], 200);
+                }else{
+                    return response()->json(['message' => 'Invalid Email'], 404);
+                }
             }
 
         } catch (\Exception $e) {
