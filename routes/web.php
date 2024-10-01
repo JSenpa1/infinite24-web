@@ -12,6 +12,14 @@ Route::get('/game', function (){
     return Inertia::render('Game');
 });
 
+Route::get('/game/pos3part1', function () {
+    return Inertia::render('Games/GamePos3/Pos3Part1');
+});
+
+Route::get('/game/pos3part2', function () {
+    return Inertia::render('Games/GamePos3/Pos3Part2');
+});
+
 Route::get('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
 
 // Route::get('/', function () {
