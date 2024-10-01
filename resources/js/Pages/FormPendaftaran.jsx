@@ -91,7 +91,7 @@ function FormPendaftaran() {
         <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-[#003049]">
           <img src={polygon} alt="Polygon Background" className="w-full h-full object-cover" />
         </div>
-        
+
         <div className="relative flex flex-col items-center justify-center min-h-screen p-4 mt-4">
 
         <img src={infiniteLogo} className='absolute top-70 left-8 hidden md:block' />
@@ -104,15 +104,15 @@ function FormPendaftaran() {
 
         <img src={v4} className='absolute bottom-3 right-3 hidden md:block' />
 
-        <img src={globe} className='absolute bottom-3 right-32 hidden md:block' />
+        <img src={globe} className='absolute bottom-12 2xl:bottom-0 right-32 hidden md:block' />
 
         <img
               src={infinite}
               alt="Infinite"
-              className="flex justify-center items-center mt-20 z-20 w-72 md:absolute md:top-14"
+              className="flex justify-center items-center mt-20 z-20 w-72 md:absolute 2xl:top-14 top-1"
         />
           <div
-            className="w-full max-w-xl min-h-[450px] p-8 rounded-lg shadow-lg bg-white z-10 relative bg-no-repeat bg-cover md:mt-36"
+            className="w-full max-w-xl min-h-[450px] p-8 rounded-lg shadow-lg bg-white z-10 relative bg-no-repeat bg-cover 2xl:mt-36 mt-12"
             style={{ backgroundImage: `url(${paperForm})` }}
           >
 
