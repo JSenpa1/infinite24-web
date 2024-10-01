@@ -19,6 +19,7 @@ function FormPendaftaran() {
         nama: '',
         nim: '',
         angkatan: '',
+        email: '',
     });
 
     const [token, setToken] = useState(null);
@@ -32,6 +33,7 @@ function FormPendaftaran() {
         console.log(formData.nama);
         console.log(formData.nim);
         console.log(formData.angkatan);
+        console.log(formData.email);
     };
 
     const handleInputData = async () => {
@@ -41,6 +43,7 @@ function FormPendaftaran() {
             nama: formData.nama,
             nim: formData.nim,
             angkatan: formData.angkatan,
+            email: formData.email,
           }
         });
         console.log(res2.data);
@@ -57,6 +60,7 @@ function FormPendaftaran() {
                 nama: formData.nama,
                 nim: formData.nim,
                 angkatan: formData.angkatan,
+                email: formData.email,
             });
             setToken(res.data);
             console.log(token);
@@ -88,7 +92,7 @@ function FormPendaftaran() {
     return (
         <>
         <Head title='Form Pendaftaran' />
-        <div className="relative h-screen">
+        <div className="relative md:h-screen h-fit">
         <NavBar />
         <div className="absolute top-0 left-0 right-0 h-1/2 bg-[#003049]"></div>
         <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-[#003049]">
@@ -112,10 +116,10 @@ function FormPendaftaran() {
         <img
               src={infinite}
               alt="Infinite"
-              className="flex justify-center items-center mt-20 z-20 w-72 md:absolute 2xl:top-14 top-1"
+              className="flex justify-center items-center mt-20 z-20 w-72 md:absolute 2xl:top-14 top-[-50px]"
         />
           <div
-            className="w-full max-w-xl min-h-[450px] p-8 rounded-lg shadow-lg bg-white z-10 relative bg-no-repeat bg-cover 2xl:mt-36 mt-12"
+            className="w-full max-w-xl min-h-[450px] p-8 rounded-lg shadow-lg bg-white z-10 relative bg-no-repeat bg-cover 2xl:mt-36 mt-8"
             style={{ backgroundImage: `url(${paperForm})` }}
           >
 
@@ -155,6 +159,27 @@ function FormPendaftaran() {
                   value={formData.nim}
                   onChange={handleChange}
                   placeholder="Isi NIM disini"
+                  className="block w-full max-w-xl py-2.5 px-3 text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:text-black focus:border-blue-600 peer
+                  sm:text-xs md:text-sm lg:text-base"
+                  required
+                  min="0"
+                />
+              </div>
+              <div className="flex flex-col items-start">
+                <label
+                  htmlFor="nim"
+                  className="block text-xl font-bold text-[#780000] text-left w-full mb-1
+                  sm:text-base md:text-lg lg:text-xl"
+                >
+                  Email Student
+                </label>
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Isi Email Student disini (Bukan Email Pribadi)"
                   className="block w-full max-w-xl py-2.5 px-3 text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:text-black focus:border-blue-600 peer
                   sm:text-xs md:text-sm lg:text-base"
                   required

@@ -95,11 +95,13 @@ class TicketController extends Controller
                 'nama' => 'required|string',
                 'nim' => 'required|string',
                 'angkatan' => 'required|string',
+                'email' => 'required|string'
             ]);
 
             $nama  = $request->input('nama');
             $nim = $request->input('nim');
             $angkatan = $request->input('angkatan');
+            $email = $request->input('email');
 
             if ($angkatan == '2024') {
 
@@ -112,6 +114,7 @@ class TicketController extends Controller
                         'nama' => $nama,
                         'nim' => $nim,
                         'angkatan' => $angkatan,
+                        'email' => $email
                     ),
                 );
 
@@ -128,6 +131,7 @@ class TicketController extends Controller
                         'nama' => $nama,
                         'nim' => $nim,
                         'angkatan' => $angkatan,
+                        'email' => $email
                     ),
                 );
 
