@@ -32,7 +32,7 @@ function PembayaranDone() {
               <p1 className='font-semibold font-sans mt-4 text-[12px] md:text-[16px]'>Pendaftaran kamu untuk acara Infinite telah berhasil. Kami sangat antusias menyambut kehadiranmu dalam acara seru ini! Berikut adalah informasi penting yang perlu kamu ketahui:</p1>
             </div>
 
-              <p1 className='font-sans md:text-[20px] text-[14px] font-extrabold md:mt-8 mt-4'>Tanggal Acara: 3 November 2024</p1>
+              <p1 className='font-sans md:text-[20px] text-[14px] font-extrabold md:mt-8 mt-4'>Tanggal Acara: 2 November 2024</p1>
               <p1 className='font-sans md:text-[20px] text-[14px] font-extrabold'>Open Registration : Pukul 14.30 WIB</p1>
               <p1 className='font-sans md:text-[20px] text-[14px] font-extrabold'>Open Gate         : Pukul 15.30 WIB</p1>
               <p1 className='font-sans md:text-[18px] text-[14px] font-extrabold'>Location: Lobby B, Universitas Multimedia Nusantara</p1>

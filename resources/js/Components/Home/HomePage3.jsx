@@ -15,7 +15,7 @@ const arrow = getImageByName('arrow');
 
 const HomePage3 = ({ id }) => {
   const calculateTimeLeft = () => {
-    const eventDate = new Date("November 3, 2024 00:00:00").getTime();
+    const eventDate = new Date("November 2, 2024 00:00:00").getTime();
     const currentTime = new Date().getTime();
     const difference = eventDate - currentTime;
 
