@@ -80,6 +80,7 @@ class TicketController extends Controller
         // Config::$is3ds = "true";
 
         // Set your Merchant Server Key
+
         \Midtrans\Config::$serverKey = config('midtrans.serverKey');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
         \Midtrans\Config::$isProduction = true;
