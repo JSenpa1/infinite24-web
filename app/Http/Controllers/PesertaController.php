@@ -12,22 +12,29 @@ class PesertaController extends Controller
         $request->validate([
             'nama' => 'required|string',
             'nim' => 'required|string',
-            'angkatan' => 'required|string'
+            'angkatan' => 'required|string',
+            'email' => 'required|string'
         ]);
 
         try {
             $nama = $request->input('nama');
             $nim = $request->input('nim');
             $angkatan = $request->input('angkatan');
+            $email = $request->input('email');
 
-            $peserta = Peserta::create([
-                'nama' => $nama,
-                'nim' => $nim,
-                'angkatan' => $angkatan,
-                'regis_ulang' => false
-            ]);
-
-            return response()->json(['message' => 'Berhasil']);
+            if(str_ends_with($email, '@student.umn.ac.id')){
+                $peserta = Peserta::create([
+                    'nama' => $nama,
+                    'nim' => $nim,
+                    'angkatan' => $angkatan,
+                    'email' => $email,
+                    'regis_ulang' => false
+                ]);
+    
+                return response()->json(['message' => 'Berhasil Diinput'], 200);
+            }else{
+                return response()->json(['message' => 'Invalid Email'], 404);
+            }
 
         } catch (\Exception $e) {
             return response()->json(['message' => 'Error: ' . $e->getMessage()], 500);

@@ -18,6 +18,7 @@ class Peserta extends Model
         'nama',
         'nim',
         'angkatan',
+        'email',
         'regis_ulang'
     ];
 }
