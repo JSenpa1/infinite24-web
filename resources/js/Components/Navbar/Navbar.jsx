@@ -62,29 +62,29 @@ function Navbar() {
     }, []);
 
     return (
-        <div className={`${isScrollUp ? "md:top-0" : "md:-top-40"} w-[100%] fixed top-0 left-0 z-50 ${navBackground} transition-all duration-300`}>
+        <div className={`${isScrollUp ? "lg:top-0" : "lg:-top-40"} w-[100%] fixed top-0 left-0 z-50 ${navBackground} transition-all duration-300`}>
             <div className="relative top-[140px] left-0 w-screen h-[10px] inset-0 z-10" />
-            <div className="md:flex items-center justify-between py-10 md:px-10 px-7">
+            <div className="lg:flex items-center justify-between py-10 lg:px-10 px-7">
                 <div className={`font-bold text-2xl cursor-pointer flex items-center ${textColor} font-sans`}>
-                    <span className="text-3xl flex flex-row md:items-center items-center gap-10 mr-4 md:pt-0 pt-2">
-                        <img src={Logoimage} alt="logo_infinite" className="md:h-[70px] w-auto h-[50px]" />
+                    <span className="text-3xl flex flex-row lg:items-center items-center gap-10 mr-4 lg:pt-0 pt-2">
+                        <img src={Logoimage} alt="logo_infinite" className="lg:h-[70px] w-auto h-[50px]" />
                     </span>
                 </div>
-                <div onClick={() => setOpen(!open)} className={`text-3xl absolute right-8 top-12 cursor-pointer md:hidden ${textColor}`}>
-                    <div className="w-12 h-12 bg-dark-blue rounded-md text-white flex item-center justify-center text-[100px] shadow-[0px_10px_18px_gray]">
+                <div onClick={() => setOpen(!open)} className={`text-3xl absolute right-8 top-12 cursor-pointer lg:hidden ${textColor}`}>
+                    <div className="w-12 h-12 bg-dark-blue rounded-lg text-white flex item-center justify-center text-[100px] shadow-[0px_10px_18px_gray]">
                         <IonIcon name={open ? "close" : "menu"}></IonIcon>
                     </div>
                 </div>
-                <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in
+                <ul className={`lg:flex lg:items-center lg:pb-0 pb-12 absolute lg:static lg:z-auto z-[-1] left-0 w-full lg:w-auto lg:pl-0 pl-9 transition-all duration-500 ease-in
             ${open ? `top-[138px] ${navBackground}` : "top-[-490px] bg-transparent"} ${textColor}`}>
                     {Links.map((link) => (
-                        <li key={link.name} className="md:ml-8 mr-6 md:my-0 my-7 text-center">
+                        <li key={link.name} className="lg:ml-8 mr-6 lg:my-0 my-7 text-center">
                             <Link href={link.link} className="hover:text-slate-800 font-extrabold">
                                 {link.name}
                             </Link>
                         </li>
                     ))}
-                    <li className="md:ml-8 mr-6 md:my-0 my-7 flex">
+                    <li className="lg:ml-8 mr-6 lg:my-0 my-7 flex">
                         <RegisterButton />
                     </li>
                 </ul>
