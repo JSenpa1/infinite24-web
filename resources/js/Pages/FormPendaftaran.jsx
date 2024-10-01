@@ -11,6 +11,7 @@ import yakaliGaIkutan from "../../../public/assets/yakali ga ikutan.png";
 import v4 from "../../../public/assets/V.4.png";
 import globe from "../../../public/assets/globe.png";
 import { Link } from '@inertiajs/react'
+import { Head } from '@inertiajs/react'
 
 function FormPendaftaran() {
 
@@ -85,6 +86,8 @@ function FormPendaftaran() {
     }
 
     return (
+        <>
+        <Head title='Form Pendaftaran' />
         <div className="relative h-screen">
         <NavBar />
         <div className="absolute top-0 left-0 right-0 h-1/2 bg-[#003049]"></div>
@@ -222,6 +225,7 @@ function FormPendaftaran() {
           </div>
         </div>
       </div>
+      </>
   )
 }
 

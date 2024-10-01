@@ -5,9 +5,12 @@ import infinite from "../../../public/assets/infinite.png";
 import polygon from "../../../public/assets/polygon.png";
 import NavBar from '@/Components/Navbar/NavbarFixed';
 import { Link } from '@inertiajs/react'
+import { Head } from '@inertiajs/react';
 
 function PembayaranDone() {
     return (
+        <>
+        <Head title='Pembayaran Done'/>
         <div className="relative min-h-screen">
         <NavBar />
         <div className="absolute top-0 left-0 right-0 h-1/2 bg-[#003049]"></div>
@@ -30,8 +33,9 @@ function PembayaranDone() {
             </div>
 
               <p1 className='font-sans md:text-[20px] text-[14px] font-extrabold md:mt-8 mt-4'>Tanggal Acara: 3 November 2024</p1>
-              <p1 className='font-sans md:text-[20px] text-[14px] font-extrabold'>Pukul: 15.00 WIB</p1>
-              <p1 className='font-sans md:text-[18px] text-[14px] font-extrabold'>Location: Lecture Theatre, Universitas Multimedia Nusantara</p1>
+              <p1 className='font-sans md:text-[20px] text-[14px] font-extrabold'>Open Registration : Pukul 14.30 WIB</p1>
+              <p1 className='font-sans md:text-[20px] text-[14px] font-extrabold'>Open Gate         : Pukul 15.30 WIB</p1>
+              <p1 className='font-sans md:text-[18px] text-[14px] font-extrabold'>Location: Lobby B, Universitas Multimedia Nusantara</p1>
 
               <div className='flex justify-end md:mt-8 mt-4'>
               <Link href="/">
@@ -65,6 +69,8 @@ function PembayaranDone() {
           </div>
         </div>
       </div>
+      </>
+
   )
 }
 
