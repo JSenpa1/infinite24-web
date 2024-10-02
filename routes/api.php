@@ -18,6 +18,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::post('/mid', [TicketController::class, 'midTrans']);
+Route::post('/call-back', [TicketController::class, 'callBack']);
 // Route::get('/auth', [KodePosController::class, 'getAuth']);
 
 // Route::get('/checkKodePos', [KodePosController::class, 'getKodePos']);
