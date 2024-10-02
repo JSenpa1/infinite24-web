@@ -107,10 +107,20 @@ class TicketController extends Controller
             // Determine gross amount based on angkatan
             $grossAmount = $angkatan == '2024' ? 15000 : 20000;
     
+            // Create the order in the database
+            $order = Order::create([
+                'nama' => $nama,
+                'nim' => $nim,
+                'angkatan' => $angkatan,
+                'email' => $email,
+                'total_price' => $grossAmount,
+                'status' => 'unpaid', // Default status
+            ]);
+    
             // Prepare params for Midtrans
             $params = array(
                 'transaction_details' => array(
-                    'order_id' => uniqid(), // Use uniqid() for a unique order ID
+                    'order_id' => $order->id,
                     'gross_amount' => $grossAmount
                 ),
                 'customer_details' => array(
@@ -120,15 +130,6 @@ class TicketController extends Controller
                     'email' => $email
                 ),
             );
-    
-            // Create the order in the database
-            $order = Order::create([
-                'nama' => $nama,
-                'nim' => $nim,
-                'angkatan' => $angkatan,
-                'total_price' => $grossAmount,
-                'status' => 'unpaid', // Default status
-            ]);
     
             // Get the Snap token
             $snapToken = \Midtrans\Snap::getSnapToken($params);
@@ -143,11 +144,12 @@ class TicketController extends Controller
         $serverKey = config('midtrans.serverKey');
         $hashed = hash("sha512", $request->order_id.$request->status_code.$request->gross_amount.$serverKey);
 
-        if(hashed == $request->signature_key) {
+        if($hashed == $request->signature_key) {
             if($request->transaction_status == 'settlement')
             {
                 $order = Order::find($request->order_id);
                 $order->update(['status' => 'paid']);
+                return redirect('/PembayaranDone');
             }
         }
     }
