@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Midtrans\Config;
 use Midtrans\Snap;
 use App\Models\Order;
+use App\Models\Peserta;
 
 class TicketController extends Controller
 {
@@ -149,6 +150,12 @@ class TicketController extends Controller
             {
                 $order = Order::find($request->order_id);
                 $order->update(['status' => 'paid']);
+                $peserta = Peserta::create([
+                    'nama' => $order->nama,       
+                    'nim' => $order->nim,       
+                    'angkatan' => $order->angkatan, 
+                    'email' => $order->email,
+                ]);
                 return redirect('/PembayaranDone');
             }
         }
