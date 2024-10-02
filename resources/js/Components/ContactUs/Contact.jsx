@@ -67,13 +67,13 @@ const Contact = ({ id }) => {
           </div>
 
           <div className="relative">
-            <a href="https://wa.me/+6282280929985" target="_blank" rel="noopener noreferrer" className="w-[90px] md:w-[190px] md:h-[190px] flex justify-center items-center">
+            <a href="https://wa.me/+628811096232" target="_blank" rel="noopener noreferrer" className="w-[90px] md:w-[190px] md:h-[190px] flex justify-center items-center">
               <img src={whatsapp} className="mix-blend-multiply hover:scale-[120%] ease-in-out duration-[0.5s]"/>
             </a>
           </div>
 
           <div className="relative mt-8 md:mt-[145px]">
-            <a href="https://line.me/ti/p/7tG9zAtxrU" target="_blank" rel="noopener noreferrer" className="w-[90px] md:w-[190px] md:h-[190px] flex justify-center items-center">
+            <a href="https://line.me/ti/p/51pV_kc99i" target="_blank" rel="noopener noreferrer" className="w-[90px] md:w-[190px] md:h-[190px] flex justify-center items-center">
               <img src={line} className="mix-blend-multiply hover:scale-[120%] ease-in-out duration-[0.5s]"/>
             </a>
           </div>
