@@ -15,6 +15,7 @@ class Order extends Model
         'id',
         'nama',
         'nim',
+        'email',
         'angkatan',
         'total_price',
         'status',
