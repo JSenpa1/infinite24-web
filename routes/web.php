@@ -15,20 +15,20 @@ use Inertia\Inertia;
 //     return Inertia::render('Posts/Contact');
 // });
 
-// Route::get('/game', function (){
-//     return Inertia::render('Game/Index', [
-//         'error' => session('error'),
-//     ]);
-// });
+Route::get('/game', function (){
+    return Inertia::render('Game/Index', [
+        'error' => session('error'),
+    ]);
+});
 
-// Route::get('/game', [PagesController::class, 'CheckUser'])->name('check-user');
+Route::get('/game', [PagesController::class, 'CheckUser'])->name('check-user');
 
-// Route::post('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
+Route::post('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
 
-// Route::post('/game/{id}/confirmation', [PagesController::class, 'CheckAnswer'])->name('check-answer');
-// Route::post('game/{id}/confirmation', function (){
-//     return Inertia::render('Game/InputCode');
-// });
+Route::post('/game/{id}/confirmation', [PagesController::class, 'CheckAnswer'])->name('check-answer');
+Route::post('game/{id}/confirmation', function (){
+    return Inertia::render('Game/InputCode');
+});
 
 Route::get('/PembayaranDone', function() {
     return Inertia::render('PembayaranDone');
