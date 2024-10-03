@@ -16,10 +16,10 @@ const turtle02 = getImageByName('Turtle02');
 
 
 
-function HeroHome() {
+function HeroHome({ id }) {
   return (
     <div>
-        <div className='bg-grid-hero h-screen w-screen pt-4'>
+        <div id={id} className='bg-grid-hero h-screen w-screen pt-4'>
             <div className="relative top-[140px] left-0 w-screen h-[10px] border-[2px] border-light-red inset-0 z-10" />
             <div className='flex lg:flex-row flex-col items-center lg:justify-normal justify-center relative top-1/4 bottom-1/2 lg:left-20 p-8 '>
                 <div className='flex flex-col lg:w-[55%] w-[90%]'>
