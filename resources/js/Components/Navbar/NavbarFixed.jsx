@@ -11,6 +11,7 @@ const getImageByName = (name) => {
 };
 
 const Logoimage = getImageByName('LogoInfinite');
+const background = getImageByName('Header');
 
 function Navbar() {
     const Links = [
@@ -61,7 +62,7 @@ function Navbar() {
     }, []);
 
     return (
-        <div className={`${isScrollUp ? "md:top-0" : "md:-top-40"} w-[100%] fixed top-0 left-0 z-50 ${navBackground} transition-all duration-300`}>
+        <div className={`${isScrollUp ? "md:top-0" : "md:-top-40"} w-[100%] fixed top-0 left-0 z-50 transition-all duration-300`} style={{ backgroundImage: `url(${background})`}}>
             <div className="relative top-[140px] left-0 w-screen h-[10px] inset-0 z-10" />
             <div className="md:flex items-center justify-between py-10 md:px-10 px-7">
                 <div className={`font-bold text-2xl cursor-pointer flex items-center ${textColor} font-sans`}>

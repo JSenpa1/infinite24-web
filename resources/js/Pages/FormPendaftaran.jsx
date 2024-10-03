@@ -4,7 +4,14 @@ import paperForm from "../../../public/assets/paper form.png";
 import infinite from "../../../public/assets/infinite.png";
 import polygon from "../../../public/assets/polygon.png";
 import NavBar from '@/Components/Navbar/NavbarFixed';
+import infiniteLogo from "../../../public/assets/infinite is here.png";
+import rocketCursor from "../../../public/assets/rocket cursor.png";
+import turtle from "../../../public/assets/turtle.png";
+import yakaliGaIkutan from "../../../public/assets/yakali ga ikutan.png";
+import v4 from "../../../public/assets/V.4.png";
+import globe from "../../../public/assets/globe.png";
 import { Link } from '@inertiajs/react'
+import { Head } from '@inertiajs/react'
 
 function FormPendaftaran() {
 
@@ -12,6 +19,7 @@ function FormPendaftaran() {
         nama: '',
         nim: '',
         angkatan: '',
+        email: '',
     });
 
     const [token, setToken] = useState(null);
@@ -25,6 +33,7 @@ function FormPendaftaran() {
         console.log(formData.nama);
         console.log(formData.nim);
         console.log(formData.angkatan);
+        console.log(formData.email);
     };
 
     const handleInputData = async () => {
@@ -34,6 +43,7 @@ function FormPendaftaran() {
             nama: formData.nama,
             nim: formData.nim,
             angkatan: formData.angkatan,
+            email: formData.email,
           }
         });
         console.log(res2.data);
@@ -45,11 +55,19 @@ function FormPendaftaran() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('Submitted Form: ', formData);
+
+        if (formData.email && !formData.email.endsWith('@student.umn.ac.id')) {
+          alert('Email must be a student email (e.g., yourname@student.umn.ac.id)');
+          window.location.reload(); // Refresh the page
+          return; // Exit the function
+      }
+
         try {
             const res = await axios.post("/api/mid", {
                 nama: formData.nama,
                 nim: formData.nim,
                 angkatan: formData.angkatan,
+                email: formData.email,
             });
             setToken(res.data);
             console.log(token);
@@ -58,7 +76,7 @@ function FormPendaftaran() {
                 /* You may add your own implementation here */
                 alert("Pembayaran Berhasil"); console.log(result);
                 handleInputData();
-
+                window.location.href='/PembayaranDone';
               },
               onPending: function(result){
                 /* You may add your own implementation here */
@@ -79,23 +97,36 @@ function FormPendaftaran() {
     }
 
     return (
-        <div className="relative min-h-screen">
+        <>
+        <Head title='Form Pendaftaran' />
+        <div className="relative md:h-screen h-fit">
         <NavBar />
         <div className="absolute top-0 left-0 right-0 h-1/2 bg-[#003049]"></div>
         <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-[#003049]">
           <img src={polygon} alt="Polygon Background" className="w-full h-full object-cover" />
         </div>
 
-        
+        <div className="relative flex flex-col items-center justify-center min-h-screen p-4 mt-4">
 
-        <div className="relative flex flex-col items-center justify-center min-h-screen p-4">
+        <img src={infiniteLogo} className='absolute top-70 left-8 hidden md:block' />
+
+        <img src={rocketCursor} className='absolute bottom-52 left-52 hidden md:block' />
+
+        <img src={turtle} className='absolute bottom-3 left-0 hidden md:block' />
+
+        <img src={yakaliGaIkutan} className='absolute top-40 right-0 hidden md:block' />
+
+        <img src={v4} className='absolute bottom-3 right-3 hidden md:block' />
+
+        <img src={globe} className='absolute bottom-12 2xl:bottom-0 right-32 hidden md:block' />
+
         <img
               src={infinite}
               alt="Infinite"
-              className="flex justify-center items-center mt-20 z-20 w-72"
-          />
+              className="flex justify-center items-center mt-20 z-20 w-72 md:absolute 2xl:top-14 top-[-50px]"
+        />
           <div
-            className="w-full max-w-xl min-h-[450px] p-8 rounded-lg shadow-lg bg-white z-10 relative bg-no-repeat bg-cover"
+            className="w-full max-w-xl min-h-[450px] p-8 rounded-lg shadow-lg bg-white z-10 relative bg-no-repeat bg-cover 2xl:mt-36 mt-8"
             style={{ backgroundImage: `url(${paperForm})` }}
           >
 
@@ -143,6 +174,27 @@ function FormPendaftaran() {
               </div>
               <div className="flex flex-col items-start">
                 <label
+                  htmlFor="nim"
+                  className="block text-xl font-bold text-[#780000] text-left w-full mb-1
+                  sm:text-base md:text-lg lg:text-xl"
+                >
+                  Email Student
+                </label>
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Isi Email Student disini (Bukan Email Pribadi)"
+                  className="block w-full max-w-xl py-2.5 px-3 text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:text-black focus:border-blue-600 peer
+                  sm:text-xs md:text-sm lg:text-base"
+                  required
+                  min="0"
+                />
+              </div>
+              <div className="flex flex-col items-start">
+                <label
                   htmlFor="angkatan"
                   className="block text-xl font-bold text-[#780000] text-left w-full mb-1
                   sm:text-base md:text-lg lg:text-xl"
@@ -171,8 +223,8 @@ function FormPendaftaran() {
                 >
                   <option value="">Pilih tahun angkatan</option>
                   <option value="2024">2024</option>
-                  <option value="2022">2023</option>
-                  <option value="2021">2022</option>
+                  <option value="2023">2023</option>
+                  <option value="2022">2022</option>
                   <option value="2021">2021</option>
                   <option value="2020">lainnya</option>
                 </select>
@@ -205,6 +257,7 @@ function FormPendaftaran() {
           </div>
         </div>
       </div>
+      </>
   )
 }
 

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('nim');
             $table->string('angkatan');
+            $table->string('email');
             $table->boolean('regis_ulang')->default(false);
         });
     }

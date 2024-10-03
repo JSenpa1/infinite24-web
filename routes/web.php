@@ -8,12 +8,12 @@ use Inertia\Inertia;
 
 // Route::get('/', [PagesController::class, 'home'])->name('home');
 // Route::get('/', [PagesController::class, 'home'])->name('home');
-Route::get('/about', [PagesController::class, 'about'])->name('about');
-Route::get('/', [PagesController::class, 'home'])->name('home');
+// Route::get('/about', [PagesController::class, 'about'])->name('about');
+// Route::get('/', [PagesController::class, 'home'])->name('home');
 // Route::get('/contact', [PagesController::class, 'contacts']);
-Route::get('/contactUs', function() {
-    return Inertia::render('Posts/Contact');
-});
+// Route::get('/contactUs', function() {
+//     return Inertia::render('Posts/Contact');
+// });
 
 // Route::get('/game', function (){
 //     return Inertia::render('Game/Index', [
@@ -21,25 +21,29 @@ Route::get('/contactUs', function() {
 //     ]);
 // });
 
-Route::get('/game', [PagesController::class, 'CheckUser'])->name('check-user');
+// Route::get('/game', [PagesController::class, 'CheckUser'])->name('check-user');
 
-Route::post('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
+// Route::post('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
 
-Route::post('/game/{id}/confirmation', [PagesController::class, 'CheckAnswer'])->name('check-answer');
+// Route::post('/game/{id}/confirmation', [PagesController::class, 'CheckAnswer'])->name('check-answer');
 // Route::post('game/{id}/confirmation', function (){
 //     return Inertia::render('Game/InputCode');
 // });
+
+Route::get('/PembayaranDone', function() {
+    return Inertia::render('PembayaranDone');
+});
 
 Route::controller(PagesController::class)->group(function() {
     Route::get('/', 'home');
     Route::get('/FormPendaftaran', 'FormPendaftaran')->name('FormPendaftaran');
 });
 
-Route::get('/register_form', function (){
-    return Inertia::render('RegistrationForm');
-});
+// Route::get('/register_form', function (){
+//     return Inertia::render('RegistrationForm');
+// });
 
-Route::get('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
+// Route::get('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
 
 Route::get('/coming-soon', function() {
     return Inertia::render('Posts/Welcome');

@@ -18,8 +18,7 @@ function HomePage4({ id }) {
 
       <div className="flex justify-center items-center mt-14">
         <p className="text-dark-blue text-xl max-w-md font-bold text-center">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum libero risus,
-          posuere id porttitor et, pretium et neque. Praesent ex nunc.
+          Berikut adalah sponsor-sponsor ternama yang mendukung acara kita
         </p>
       </div>
 

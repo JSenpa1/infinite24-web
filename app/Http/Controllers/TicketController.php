@@ -8,6 +8,8 @@ use App\Http\Requests\UpdateticketRequest;
 use Illuminate\Http\Request;
 use Midtrans\Config;
 use Midtrans\Snap;
+use App\Models\Order;
+use App\Models\Peserta;
 
 class TicketController extends Controller
 {
@@ -80,9 +82,10 @@ class TicketController extends Controller
         // Config::$is3ds = "true";
 
         // Set your Merchant Server Key
+
         \Midtrans\Config::$serverKey = config('midtrans.serverKey');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        \Midtrans\Config::$isProduction = false;
+        \Midtrans\Config::$isProduction = true;
         // Set sanitization on (default)
         \Midtrans\Config::$isSanitized = true;
         // Set 3DS transaction for credit card to true
@@ -94,50 +97,68 @@ class TicketController extends Controller
                 'nama' => 'required|string',
                 'nim' => 'required|string',
                 'angkatan' => 'required|string',
+                'email' => 'required|string'
             ]);
-
+    
             $nama  = $request->input('nama');
             $nim = $request->input('nim');
             $angkatan = $request->input('angkatan');
-
-            if ($angkatan == '2024') {
-
-                $params = array(
-                    'transaction_details' => array(
-                        'order_id' => rand(), // Use uniqid() for a unique order ID
-                        'gross_amount' => 15000
-                    ),
-                    'customer_details' => array(
-                        'nama' => $nama,
-                        'nim' => $nim,
-                        'angkatan' => $angkatan,
-                    ),
-                );
-
-                // return response()->json(['message' => 'Angkatan 2024', 'params' => $params]);
-
-            } else {
-
-                $params = array(
-                    'transaction_details' => array(
-                        'order_id' => rand(), // Use uniqid() for a unique order ID
-                        'gross_amount' => 20000
-                    ),
-                    'customer_details' => array(
-                        'nama' => $nama,
-                        'nim' => $nim,
-                        'angkatan' => $angkatan,
-                    ),
-                );
-
-                // return response()->json(['message' => 'Angkatan lainnya', 'params' => $params]);
-            }
+            $email = $request->input('email');
+    
+            // Determine gross amount based on angkatan
+            $grossAmount = $angkatan == '2024' ? 15000 : 20000;
+    
+            // Create the order in the database
+            $order = Order::create([
+                'nama' => $nama,
+                'nim' => $nim,
+                'angkatan' => $angkatan,
+                'email' => $email,
+                'total_price' => $grossAmount,
+                'status' => 'unpaid', // Default status
+            ]);
+    
+            // Prepare params for Midtrans
+            $params = array(
+                'transaction_details' => array(
+                    'order_id' => $order->id,
+                    'gross_amount' => $grossAmount
+                ),
+                'customer_details' => array(
+                    'nama' => $nama,
+                    'nim' => $nim,
+                    'angkatan' => $angkatan,
+                    'email' => $email
+                ),
+            );
+    
+            // Get the Snap token
+            $snapToken = \Midtrans\Snap::getSnapToken($params);
+    
+            return response()->json($snapToken);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Error: ' . $e->getMessage()], 500);
         }
-
-        $snapToken = \Midtrans\Snap::getSnapToken($params);
-
-        return response()->json($snapToken);
     }
+
+    public function callBack(Request $request) {
+        $serverKey = config('midtrans.serverKey');
+        $hashed = hash("sha512", $request->order_id.$request->status_code.$request->gross_amount.$serverKey);
+
+        if($hashed == $request->signature_key) {
+            if($request->transaction_status == 'settlement')
+            {
+                $order = Order::find($request->order_id);
+                $order->update(['status' => 'paid']);
+                $peserta = Peserta::create([
+                    'nama' => $order->nama,       
+                    'nim' => $order->nim,       
+                    'angkatan' => $order->angkatan, 
+                    'email' => $order->email,
+                ]);
+                return redirect('/PembayaranDone');
+            }
+        }
+    }
+
 }
