@@ -19,18 +19,18 @@ Route::get('/user', function (Request $request) {
 
 Route::post('/mid', [TicketController::class, 'midTrans']);
 Route::post('/call-back', [TicketController::class, 'callBack']);
-// Route::get('/auth', [KodePosController::class, 'getAuth']);
+Route::get('/auth', [KodePosController::class, 'getAuth']);
 
-// Route::get('/checkKodePos', [KodePosController::class, 'getKodePos']);
-// Route::get('/checkJawabanPos2Part1', [Pos2Part1Controller::class, 'checkJawaban']);
-// Route::get('/checkJawabanPos2Part2', [Pos2Part2Controller::class, 'checkJawaban']);
+Route::get('/checkKodePos', [KodePosController::class, 'getKodePos']);
+Route::get('/checkJawabanPos2Part1', [Pos2Part1Controller::class, 'checkJawaban']);
+Route::get('/checkJawabanPos2Part2', [Pos2Part2Controller::class, 'checkJawaban']);
 
-// Route::get('/checkJawabanPos4', [Pos4Controller::class, 'checkJawaban']);
-// Route::get('/checkKodeGrup', [GroupCodeController::class, 'checkKodeGrup']);
+Route::get('/checkJawabanPos4', [Pos4Controller::class, 'checkJawaban']);
+Route::get('/checkKodeGrup', [GroupCodeController::class, 'checkKodeGrup']);
 
-// Route::get('/checkJawabanPos1', [Pos1Controller::class, 'checkJawaban']);
-// Route::get('/checkJawabanPos3', [Pos3Controller::class, 'checkJawaban']);
-// Route::get('/fetchClockPos3', [Pos3Controller::class, 'fetchClock']);
+Route::get('/checkJawabanPos1', [Pos1Controller::class, 'checkJawaban']);
+Route::get('/checkJawabanPos3', [Pos3Controller::class, 'checkJawaban']);
+Route::get('/fetchClockPos3', [Pos3Controller::class, 'fetchClock']);
 
 Route::get('/inputPeserta', [PesertaController::class, 'inputPeserta']);
-// Route::get('/updateRegis', [PesertaController::class, 'updateRegis']);
+Route::get('/updateRegis', [PesertaController::class, 'updateRegis']);

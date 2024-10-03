@@ -15,7 +15,7 @@ class Pos2Part2Seeder extends Seeder
     {
         Pos2Part2::create([
             'id' => 1,
-            'jawaban' => 'Kami adalah mahasiswa-mahasiswi Universitas Multimedia Nusantara, dan kami berasal dari prodi Informatika. Setiap hari kami melaksanakan perkuliahan dimulai dengan belajar tentang algoritma dan pemrograman. Setelah melaksanakan perkuliahan kami lanjut mengerjakan tugas bersama-sama hingga matahari terbenam. Walaupun lelah, tetapi itu semua merupakan kewajiban kami sebagai mahasiswa.',
+            'jawaban' => 'Kami adalah mahasiswa-mahasiswi Universitas Multimedia Nusantara, dan kami berasal dari prodi Informatika. Setiap hari kami melaksanakan perkuliahan yang dimulai dengan belajar tentang algoritma dan pemrograman. Setelah melaksanakan perkuliahan, kami lanjut mengerjakan tugas bersama-sama hingga matahari terbenam. Walaupun lelah, itu semua merupakan kewajiban kami sebagai mahasiswa.',
         ]);
     }
 }
