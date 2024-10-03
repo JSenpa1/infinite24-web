@@ -14,7 +14,7 @@ const Logoimage = getImageByName('LogoInfinite');
 
 function Navbar() {
     const Links = [
-        { name: "HOME", link: "/" },
+        { name: "HOME", link: "#home" },
         { name: "ABOUT", link: "#about-us" }, // Updated link
         { name: "TIMELINE", link: "#timeline" },
         // { name: "SPONSOR", link: "#sponsor" },
@@ -79,9 +79,9 @@ function Navbar() {
             ${open ? `top-[138px] ${navBackground}` : "top-[-490px] bg-transparent"} ${textColor}`}>
                     {Links.map((link) => (
                         <li key={link.name} className="lg:ml-8 mr-6 lg:my-0 my-7 text-center">
-                            <Link href={link.link} className="hover:text-slate-800 font-extrabold">
+                            <a href={link.link} className="hover:text-slate-800 font-extrabold">
                                 {link.name}
-                            </Link>
+                            </a>
                         </li>
                     ))}
                     <li className="lg:ml-8 mr-6 lg:my-0 my-7 flex">

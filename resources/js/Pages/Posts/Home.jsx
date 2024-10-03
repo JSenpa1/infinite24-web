@@ -23,7 +23,7 @@ function Home() {
       <Head title='Home'/>
       <div className='overflow-clip relative h-fit w-screen'>
         <Navbar />
-        <HeroHome />
+        <HeroHome id="home" />
         <MarqueeWrapper />
         <AboutUs id="about-us" />
         <HomePage3 id="timeline" />
