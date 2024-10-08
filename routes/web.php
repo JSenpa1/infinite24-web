@@ -49,6 +49,16 @@ Route::get('/coming-soon', function() {
     return Inertia::render('Posts/Welcome');
 });
 
+// Route::get('/game/pos3part1', function () {
+//     return Inertia::render('Games/GamePos3/Pos3Part1');
+// });
+
+// Route::get('/game/pos3part2', function () {
+//     return Inertia::render('Games/GamePos3/Pos3Part2');
+// });
+
+// Route::get('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
+
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
 //         'canLogin' => Route::has('login'),
