@@ -20,6 +20,14 @@ Route::get('/game', function (){
         'error' => session('error'),
     ]);
 });
+// Route::get('/game', function () {
+//     return Inertia::render('Game/Index');
+// });
+
+// // pos2
+// Route::get('/game/pos2', function () {
+//     return Inertia::render('Game/pos2');
+// });
 
 Route::get('/game', [PagesController::class, 'CheckUser'])->name('check-user');
 
@@ -34,7 +42,7 @@ Route::get('/PembayaranDone', function() {
     return Inertia::render('PembayaranDone');
 });
 
-Route::controller(PagesController::class)->group(function() {
+Route::controller(PagesController::class)->group(function () {
     Route::get('/', 'home');
     Route::get('/FormPendaftaran', 'FormPendaftaran')->name('FormPendaftaran');
 });
@@ -78,4 +86,4 @@ Route::get('/coming-soon', function() {
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
