@@ -10,7 +10,7 @@ export default function Pos1({ error }){
             <div className="container flex flex-col justify-center items-center mx-auto min-h-screen">
                 <div className="flex flex-col justify-center items-center">
                     {/* <img /> */}
-                    <div className="border-2 border-white aspect-video w-4/5 lg:w-3/5 mb-5">
+                    <div className="border-2 border-white aspect-video w-4/5 lg:w-3/5 mb-5  ">
 
                     </div>
                     {error ? (
