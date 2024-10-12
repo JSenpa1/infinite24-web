@@ -36,7 +36,7 @@ Route::get('/PembayaranDone', function() {
 
 Route::controller(PagesController::class)->group(function() {
     Route::get('/', 'home');
-    Route::get('/FormPendaftaran', 'FormPendaftaran')->name('FormPendaftaran');
+    // Route::get('/FormPendaftaran', 'FormPendaftaran')->name('FormPendaftaran');
 });
 
 // Route::get('/register_form', function (){
