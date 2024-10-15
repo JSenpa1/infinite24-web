@@ -84,9 +84,12 @@ const HomePage3 = ({ id }) => {
             </div>
             ))}
           </div>
-          <p className="mt-10 text-sm md:text-base text-cream">
+          {/* <p className="mt-10 text-sm md:text-base text-cream">
             Registration is open from <span className="font-bold">1 October 2024</span> -{" "}
             <span className="font-bold">20 October 2024</span>
+          </p> */}
+          <p className="mt-10 text-sm md:text-base text-cream">
+            Registration is closed for now, stay tuned!
           </p>
         </div>
       </div>
