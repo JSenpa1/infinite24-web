@@ -30,6 +30,10 @@ use Inertia\Inertia;
 //     return Inertia::render('Game/InputCode');
 // });
 
+Route::get('/admin', function() {
+    return Inertia::render('Admin');
+});
+
 Route::get('/PembayaranDone', function() {
     return Inertia::render('PembayaranDone');
 });

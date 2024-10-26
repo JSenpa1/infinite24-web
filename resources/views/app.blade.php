@@ -8,6 +8,8 @@
         <meta title="Infinite UMN">
         <meta name="description" content="  Infinite adalah malam puncak yang wajib dihadiri oleh seluruh Mahasiswa Baru Informatika UMN angkatan 2024. Acara ini merupakan syarat kelulusan dari perkenalan prodi Informatika. Bergabunglah dalam momen bonding yang tak terlupakan dengan teman-teman seangkatan serta mahasiswa dari angkatan lain. Ini adalah kesempatan emas untuk memperluas jaringan dan berinteraksi dengan alumni yang telah sukses. Dihadiri dengan beragam permainan seru dan aktivitas menarik, Infinite akan memastikan bahwa kalian tetap excited dan terlibat sepanjang acara. Mari kita ciptakan kenangan indah dan hubungan yang kuat di malam yang penuh keceriaan ini!">
 
+        <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
         <script type="text/javascript"
