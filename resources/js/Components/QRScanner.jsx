@@ -11,7 +11,7 @@ const QRScanner = ({ onScan }) => {
                 console.error("Instascan not loaded");
                 return;
             }
-            
+
             const scanner = new window.Instascan.Scanner({ video: videoRef.current });
             setScanner(scanner);
 
