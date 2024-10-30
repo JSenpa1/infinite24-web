@@ -39,7 +39,7 @@ class MailContent extends Mailable
         return new Content(
             view: 'mail_content',
             with: [
-                'text' => $this->data['text'],
+                'qrData' => $this->data['nim']
             ]
         );
     }
