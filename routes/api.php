@@ -34,3 +34,4 @@ Route::post('/call-back', [TicketController::class, 'callBack']);
 
 Route::get('/inputPeserta', [PesertaController::class, 'inputPeserta']);
 Route::get('/updateRegis', [PesertaController::class, 'updateRegis']);
+Route::get('/sendEmail', [PesertaController::class, 'sendEmail']);

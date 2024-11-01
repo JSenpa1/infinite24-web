@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Peserta;
+use App\Models\TesEmail;
+use App\Mail\MailContent;
+
 
 class PesertaController extends Controller
 {
@@ -68,6 +72,25 @@ class PesertaController extends Controller
             }
         } catch (\Exception $e) {
             return response()->json(['message' => 'Error: ' . $e->getMessage()], 500);
+        }
+    }
+
+    public function sendEmail()
+    {
+        $emails = TesEmail::all();
+
+        try {
+            foreach ($emails as $recipient) {
+                $data = [
+                    'nim' => $recipient->nim,
+                ];
+                
+                Mail::to($recipient->email)->send(new MailContent($data));
+            }
+
+            return response()->json(['message' => 'Email has been sent successfully!'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Failed to send email. Error: ' . $e->getMessage()], 500);
         }
     }
 
