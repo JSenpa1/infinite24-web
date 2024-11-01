@@ -19,6 +19,7 @@ Route::get('/user', function (Request $request) {
 
 Route::post('/mid', [TicketController::class, 'midTrans']);
 Route::post('/call-back', [TicketController::class, 'callBack']);
+Route::get('/sendEmailPeserta', [PesertaController::class, 'sendEmailPeserta']);
 // Route::get('/auth', [KodePosController::class, 'getAuth']);
 
 // Route::get('/checkKodePos', [KodePosController::class, 'getKodePos']);

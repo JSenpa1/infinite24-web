@@ -52,6 +52,20 @@ function FormPendaftaran() {
       }
     }
 
+    const handleSendEmail = async () => {
+      try {
+        const res2 = await axios.get("/api/sendEmailPeserta", {
+          params: {
+            nim: formData.nim,
+            email: formData.email,
+          }
+        });
+        console.log(res2.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('Submitted Form: ', formData);
@@ -76,6 +90,7 @@ function FormPendaftaran() {
                 /* You may add your own implementation here */
                 alert("Pembayaran Berhasil"); console.log(result);
                 handleInputData();
+                handleSendEmail();
                 window.location.href='/PembayaranDone';
               },
               onPending: function(result){
