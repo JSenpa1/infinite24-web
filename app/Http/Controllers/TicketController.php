@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\ticket;
 use App\Http\Requests\StoreticketRequest;
 use App\Http\Requests\UpdateticketRequest;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Midtrans\Config;
 use Midtrans\Snap;
 use App\Models\Order;
 use App\Models\Peserta;
+use App\Models\TesEmail;
+use App\Mail\MailContent;
+
 
 class TicketController extends Controller
 {
@@ -86,6 +90,7 @@ class TicketController extends Controller
         \Midtrans\Config::$serverKey = config('midtrans.serverKey');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
         \Midtrans\Config::$isProduction = true;
+        // \Midtrans\Config::$isProduction = false;
         // Set sanitization on (default)
         \Midtrans\Config::$isSanitized = true;
         // Set 3DS transaction for credit card to true
@@ -156,6 +161,10 @@ class TicketController extends Controller
                     'angkatan' => $order->angkatan, 
                     'email' => $order->email,
                 ]);
+
+                $data = ['nim' => $order->nim];
+                Mail::to($order->email)->send(new MailContent($data));
+
                 return redirect('/PembayaranDone');
             }
         }

@@ -52,6 +52,20 @@ function FormPendaftaran() {
       }
     }
 
+    const handleSendEmail = async () => {
+      try {
+        const res2 = await axios.get("/api/sendEmailPeserta", {
+          params: {
+            nim: formData.nim,
+            email: formData.email,
+          }
+        });
+        console.log(res2.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('Submitted Form: ', formData);
@@ -76,6 +90,7 @@ function FormPendaftaran() {
                 /* You may add your own implementation here */
                 alert("Pembayaran Berhasil"); console.log(result);
                 handleInputData();
+                handleSendEmail();
                 window.location.href='/PembayaranDone';
               },
               onPending: function(result){
@@ -99,7 +114,7 @@ function FormPendaftaran() {
     return (
         <>
         <Head title='Form Pendaftaran' />
-        <div className="relative md:h-screen h-fit">
+        <div className="relative md:min-h-screen h-fit object-cover">
         <NavBar />
         <div className="absolute top-0 left-0 right-0 h-1/2 bg-[#003049]"></div>
         <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-[#003049]">
@@ -123,7 +138,7 @@ function FormPendaftaran() {
         <img
               src={infinite}
               alt="Infinite"
-              className="flex justify-center items-center mt-20 z-20 w-72 md:absolute 2xl:top-14 top-[-50px]"
+              className="flex justify-center items-center mt-40 md:mt-20 z-20 w-72 md:absolute 2xl:top-14 top-[-50px]"
         />
           <div
             className="w-full max-w-xl min-h-[450px] p-8 rounded-lg shadow-lg bg-white z-10 relative bg-no-repeat bg-cover 2xl:mt-36 mt-8"

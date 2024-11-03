@@ -15,34 +15,30 @@ use Inertia\Inertia;
 //     return Inertia::render('Posts/Contact');
 // });
 
-Route::get('/game', function (){
-    return Inertia::render('Game/Index', [
-        'error' => session('error'),
-    ]);
-});
-// Route::get('/game', function () {
-//     return Inertia::render('Game/Index');
+// Route::get('/game', function (){
+//     return Inertia::render('Game/Index', [
+//         'error' => session('error'),
+//     ]);
 // });
 
-// // pos2
-// Route::get('/game/pos2', function () {
-//     return Inertia::render('Game/pos2');
+// Route::get('/game', [PagesController::class, 'CheckUser'])->name('check-user');
+
+// Route::post('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
+
+// Route::post('/game/{id}/confirmation', [PagesController::class, 'CheckAnswer'])->name('check-answer');
+// Route::post('game/{id}/confirmation', function (){
+//     return Inertia::render('Game/InputCode');
 // });
 
-Route::get('/game', [PagesController::class, 'CheckUser'])->name('check-user');
-
-Route::post('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
-
-Route::post('/game/{id}/confirmation', [PagesController::class, 'CheckAnswer'])->name('check-answer');
-Route::post('game/{id}/confirmation', function (){
-    return Inertia::render('Game/InputCode');
-});
+// Route::get('/ngapainkesiniwoi/admin', function() {
+//     return Inertia::render('Admin');
+// });
 
 Route::get('/PembayaranDone', function() {
     return Inertia::render('PembayaranDone');
 });
 
-Route::controller(PagesController::class)->group(function () {
+Route::controller(PagesController::class)->group(function() {
     Route::get('/', 'home');
     Route::get('/FormPendaftaran', 'FormPendaftaran')->name('FormPendaftaran');
 });
@@ -56,16 +52,6 @@ Route::controller(PagesController::class)->group(function () {
 Route::get('/coming-soon', function() {
     return Inertia::render('Posts/Welcome');
 });
-
-// Route::get('/game/pos3part1', function () {
-//     return Inertia::render('Games/GamePos3/Pos3Part1');
-// });
-
-// Route::get('/game/pos3part2', function () {
-//     return Inertia::render('Games/GamePos3/Pos3Part2');
-// });
-
-// Route::get('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
 
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
@@ -86,4 +72,4 @@ Route::get('/coming-soon', function() {
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';

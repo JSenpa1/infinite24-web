@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Peserta;
+use App\Models\TesEmail;
+use App\Mail\MailContent;
+
 
 class PesertaController extends Controller
 {
@@ -71,4 +75,56 @@ class PesertaController extends Controller
         }
     }
 
+    public function sendEmail()
+    {
+        $emails = TesEmail::all();
+
+        try {
+            foreach ($emails as $recipient) {
+                $data = [
+                    'nim' => $recipient->nim,
+                ];
+                
+                Mail::to("$recipient->email")->send(new MailContent($data));
+            }
+
+            return response()->json(['message' => 'Email has been sent successfully!'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Failed to send email. Error: ' . $e->getMessage()], 500);
+        }
+    }
+
+    // public function sendEmail()
+    // {
+    //     try {
+
+    //         $data = ['nim' => '71412'];
+    //         Mail::to("jonathan.susanto@student.umn.ac.id")->send(new MailContent($data));
+
+    //         return response()->json(['message' => 'Email has been sent successfully!'], 200);
+    //     } catch (\Exception $e) {
+    //         return response()->json(['message' => 'Failed to send email. Error: ' . $e->getMessage()], 500);
+    //     }
+    // }
+
+    public function sendEmailPeserta(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|string',
+            'nim' => 'required|string'
+        ]);
+    
+        try {
+            // Make sure `$data` is an array with a 'nim' key
+            $data = ['nim' => $request->input('nim')];
+            $email = $request->input('email');
+    
+            Mail::to($email)->send(new MailContent($data));
+            return response()->json(['message' => 'Email has been sent successfully!'], 200);
+    
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Failed to send email. Error: ' . $e->getMessage()], 500);
+        }
+    }      
+   
 }
