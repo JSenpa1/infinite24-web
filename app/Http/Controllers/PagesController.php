@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\User;
-use App\Models\Problem;
-
+use App\Models\KodePos;
+use App\Models\Pos1;
+use App\Models\Pos2Part1;
+use App\Models\Pos2Part2;
+use App\Models\Pos3;
 use function Ramsey\Uuid\v1;
 
 class PagesController extends Controller
@@ -19,12 +22,30 @@ class PagesController extends Controller
     public function CheckUser(){
         if(session()->has('user')){
             $user = User::where('group_code', session('user'))->first();
+            $data = $this->GatherData($user->progress);
+
             if(session()->has('error')){
                 return Inertia::render($user->progress, [
+                    'data' => $data,
                     'error' => session('error'),
                 ]);
-            }else{
-                return Inertia::render($user->progress);
+            }
+            else if(session()->has('success')){
+                return Inertia::render($user->progress, [
+                    'data' => $data,
+                    'success' => session('success'),
+                ]);
+            }
+            else if(session()->has('alertCode')){
+                return Inertia::render($user->progress, [
+                    'data' => $data,
+                    'alertCode' => session('alertCode'),
+                ]);
+            }
+            else{
+                return Inertia::render($user->progress, [
+                    'data' => $data,
+                ]);
             }
         }else if(session()->has('error')){
             return Inertia::render('Game/Index', [
@@ -32,6 +53,20 @@ class PagesController extends Controller
             ]);
         }else{
             return Inertia::render('Game/Index');
+        }
+    }
+
+    public function GatherData($progress){
+        switch($progress){
+            case 'Game/Pos1':
+                $data = Pos1::all();
+                $arrayData = $data->toArray();
+                return $arrayData;
+                break;
+            case 'Game/Pos3Part2':
+                break;
+            default:
+                break;
         }
     }
 
@@ -55,10 +90,31 @@ class PagesController extends Controller
         }
     }
 
+    public function CheckUnlockCode(Request $request, $id){
+        $kode = KodePos::where('id', $id)->first();
+        if($request->input('code') != $kode->kode_akhir){
+            return back()->with('error', 'ERROR: Kode tidak dikenal.');
+        }else{
+            $user = User::where('group_code', session('user'))->first();
+            switch($id){
+                case 1:
+                    $user->progress = 'Game/Pos2Part1';
+                    break;
+                case 2:
+                    $user->progress = 'Game/Pos3Part1';
+                    break;
+                default:
+                    break;
+            }
+            $user->save();
+            return redirect('/game')->with('alertCode', 'Kode unlock pos selanjutnya: ' . $kode->kode_awal);
+        }
+    }
+
     public function CheckAnswer(Request $request, $id){
         switch($id){
-            case 1:
-                $answerkey = Problem::where('pos_id', $id)->get();
+            case 11:
+                $answerkey = Pos1::all();
                 $answerkey1 = json_decode($answerkey[0]->answer);
                 $answerkey2 = json_decode($answerkey[1]->answer);
 
@@ -83,7 +139,14 @@ class PagesController extends Controller
                     $request->input('answer6b'),
                     $request->input('answer7b'),
                     $request->input('answer8b'),
-                    $request->input('answer9b')
+                    $request->input('answer9b'),
+                    $request->input('answer10b'),
+                    $request->input('answer11b'),
+                    $request->input('answer12b'),
+                    $request->input('answer13b'),
+                    $request->input('answer14b'),
+                    $request->input('answer15b'),
+                    $request->input('answer16b')
                 ];
 
                 $answer1 = array_map('intval', $answer1);
@@ -108,12 +171,82 @@ class PagesController extends Controller
                     return back()->with('error', 'Jawaban Soal 1 Masih Kurang Tepat!');
                 }else if($isAnswerWrong2){
                     return back()->with('error', 'Jawaban Soal 2 Masih Kurang Tepat!');
+                }else{
+                    return back()->with('success', true);
                 }
 
                 break;
-            case 2:
+            case 12:
+                if($request->input('_token')){
+                    return Inertia::render('Game/InputCode', [
+                        'id' => 1,
+                    ]);
+                }else{
+                    return redirect('/game');
+                }
                 break;
-            case 3:
+            case 21:
+                $user = User::where('group_code', session('user'))->first();
+                if($user->id <= 10){
+                    $answerkey = Pos2Part1::where('id', 1)->first();
+                }else{
+                    if($user->id <= 20){
+                        $answerkey = Pos2Part1::where('id', 2)->first();
+                    }else{
+                        $answerkey = Pos2Part1::where('id', 3)->first();
+                    }
+                }
+                
+                if($answerkey->answer != $request->input('code')){
+                    return back()->with('error', 'Jawaban Masih Kurang Tepat!');
+                }else{
+                    return back()->with('success', true);
+                }
+
+                break;
+            case 22:
+                $user = User::where('group_code', session('user'))->first();
+                $user->progress = 'Game/Pos2Part2';
+                $user->save();
+                return redirect('/game');
+                break;
+            case 23:
+                $answerkey = Pos2Part2::where('id', 1)->first();
+                if($answerkey->answer != $request->input('code')){
+                    return back()->with('error', 'Jawaban Masih Kurang Tepat!');
+                }else{
+                    return back()->with('success', true);
+                }
+                break;
+            case 24:
+                if($request->input('_token')){
+                    return Inertia::render('Game/InputCode', [
+                        'id' => 2,
+                    ]);
+                }else{
+                    return redirect('/game');
+                }
+                break;
+            case 31:
+                $user = User::where('group_code', session('user'))->first();
+                $user->progress = 'Game/Pos3Part2';
+                $user->save();
+                return redirect('/game');
+                break;
+            case 32:
+                $user = User::where('group_code', session('user'))->first();
+                $answerkey = Pos3::where('id', $user->id)->first();
+                if($answerkey->answer != $request->input('code')){
+                    return back()->with('error', 'Jawaban Masih Kurang Tepat!');
+                }else{
+                    return back()->with('success', true);
+                }
+                break;
+            case 33:
+                $user = User::where('group_code', session('user'))->first();
+                $user->progress = 'Game/Pos4';
+                $user->save();
+                return redirect('/game');
                 break;
             default:
                 break;

@@ -1,19 +1,19 @@
 import React, { useState, useRef } from 'react';
-import PopUpPos3Part2 from './PopUpPos3Part2';
-import kodeMorse from '../../../../assets/kodeMorse.png';
-import sandi from '../../../../assets/SANDI MORSE.png';
-import erroricon from '../../../../assets/error_icon.png';
-import Jam from '../../../../assets/jampos3.png';
+import PopUpNext from "../../Components/Game/PopUpNext";
 // import Grid from '../../../../assets/GridFull.png';
-import Grid from '../../../../assets/GridPenghapus.png';
 // import Penghapus from '../../../../assets/Penghapus.png';
-import Notes from '../../../../assets/Notes.png';
 
-function Pos3Part2() {
+function Pos3Part2({success}) {
     const [formData, setFormData] = useState(Array(6).fill(''));
     const [message, setMessage] = useState('');
     const [showPopup, setShowPopup] = useState(false);
     const inputRefs = useRef([]);
+    const kodeMorsePath = "/Assets/kodeMorse.png";
+    const sandiPath = "/Assets/SANDI MORSE.png";
+    const errorIconPath = "/Assets/error_icon.png";
+    const clockPath = "/Assets/jampos3.png";
+    const gridPath = "/Assets/GridPenghapus.png";
+    const notesPath = "/Assets/Notes.png";
 
     const correctAnswer = 'CLOCKS';
 
@@ -60,21 +60,21 @@ function Pos3Part2() {
                 <div className="bg-[#d37d3f] shadow-xl mt-32 sm:mt-52 md:mt-0 w-[330px] h-[270px] sm:w-[400px] md:w-[740px] lg:w-[820px] px-4 md:px-7 py-4 md:py-7 flex justify-center items-center sm:h-[300px] md:h-[450px] relative">
                     <div
                         className="bg-[#015b43] shadow-lg w-full flex flex-col md:flex-row gap-4 md:gap-6 justify-center items-center h-full relative"
-                        style={{ backgroundImage: `url(${Grid})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}
+                        style={{ backgroundImage: `url(${gridPath})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}
                     >
                         <img
-                            src={Jam}
+                            src={clockPath}
                             alt="Jam Tangan"
                             className="sm:w-[180px] md:w-[246px] sm:h-[180px] w-[150px] h-[150px] absolute md:top-0 md:left-0 top-[-180px] z-9999 sm:top-[-180px] md:h-[246px] md:mt-16 lg:mt-20 md:ml-3 lg:ml-9"
                         />
                         <div className="flex flex-col gap-3 md:gap-5 items-center md:mt-0 mt-4 ml-0 md:ml-[250px]">
-                            <img src={sandi} alt="Sandi" className="w-[150px] md:w-[180px]" />
-                            <img src={kodeMorse} alt="Kode Morse" className="md:mt-0 mt-2 w-[280px] h-[180px] sm:w-[300px] md:w-[390px] sm:h-[200px] md:h-[250px]" />
+                            <img src={sandiPath} alt="Sandi" className="w-[150px] md:w-[180px]" />
+                            <img src={kodeMorsePath} alt="Kode Morse" className="md:mt-0 mt-2 w-[280px] h-[180px] sm:w-[300px] md:w-[390px] sm:h-[200px] md:h-[250px]" />
                         </div>
 
                         {/* Notes image fixed to the bottom left of the container */}
                         <img
-                            src={Notes}
+                            src={notesPath}
                             alt="Notes"
                             className="absolute left-[-10%] bottom-[-20%] hidden md:block"
                         />
@@ -84,12 +84,12 @@ function Pos3Part2() {
 
                 {message && (
                     <div className="mt-5 px-4 py-2 flex flex-row bg-[#FDF0D5] rounded-lg">
-                        <img src={erroricon} alt="Error Icon" className='pr-3' /><p className={`text-md ${message === 'Correct Answer! 🎉' ? 'text-green-500' : 'text-[#71192F]'}`}>
+                        <img src={errorIconPath} alt="Error Icon" className='pr-3' /><p className={`text-md ${message === 'Correct Answer! 🎉' ? 'text-green-500' : 'text-[#71192F]'}`}>
                             {message}
                         </p>
                     </div>
                 )}
-                <form onSubmit={handleSubmitp2} className="mt-5 md:mt-8 flex flex-col justify-center items-center">
+                <form action="/game/32/confirmation" className="mt-5 md:mt-8 flex flex-col justify-center items-center">
                     <div className="grid grid-cols-6 gap-3 md:gap-8 lg:gap-10">
                         {formData.map((value, index) => (
                             <input
@@ -110,7 +110,7 @@ function Pos3Part2() {
                     </button>
                 </form>
             </div>
-            {showPopup && <PopUpPos3Part2 />}
+            {showPopup && <PopUpNext action="/game/33/confirmation"/>}
         </div>
     );
 }

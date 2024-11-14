@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -13,8 +14,16 @@ return new class extends Migration
     {
         Schema::create('pos2_part2', function (Blueprint $table) {
             $table->id();
-            $table->longText('jawaban');
+            $table->longText('answer');
         });
+
+        $data = [
+            [
+                'answer' => 'Kami adalah mahasiswa-mahasiswi Universitas Multimedia Nusantara, dan kami berasal dari prodi Informatika. Setiap hari kami melaksanakan perkuliahan yang dimulai dengan belajar tentang algoritma dan pemrograman. Setelah melaksanakan perkuliahan, kami lanjut mengerjakan tugas bersama-sama hingga matahari terbenam. Walaupun lelah, itu semua merupakan kewajiban kami sebagai mahasiswa.',
+            ],
+        ];
+
+        DB::table('pos2_part2')->insert($data);
     }
 
     /**

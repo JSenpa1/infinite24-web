@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import PopUpPos3Part1 from './PopUpPos3Part1';
-import erroricon from '../../../../assets/error_icon.png';
-import cursor from '../../../../assets/cursor.png';
+import React, { useState, useEffect } from 'react';
+import PopUpNext from "../../Components/Game/PopUpNext";
 import { Link, Head } from '@inertiajs/react';
 
 function Pos3Part1() {
     const [formData, setFormData] = useState('');
     const [message, setMessage] = useState('');
     const [showPopup, setShowPopup] = useState(false); // Control pop-up visibility
+    const errorIconPath = "/Assets/error_icon.png";
+    const cursorPath = "/Assets/cursor.png";
 
     const correctAnswer = 'CLOCK'; // Replace with the actual correct answer
 
@@ -38,19 +38,19 @@ function Pos3Part1() {
                             <button type="submit" className='bg-[#003049] z-0 py-3 shadow-[5px_5px_0px_rgba(0,0,0,1)] px-12 text-white rounded-lg'>
                                 SUBMIT
                             </button>
-                            <img src={cursor} alt="Cursor" className='z-10 absolute w-[50%]' style={{ top: '100%', left: '110%', transform: 'translate(-50%, -50%)' }} />
+                            <img src={cursorPath} alt="Cursor" className='z-10 absolute w-[50%]' style={{ top: '100%', left: '110%', transform: 'translate(-50%, -50%)' }} />
                         </div>
                     </form>
                 </div>
                 {message && (
                     <div className="mt-5 px-4 py-2 flex flex-row bg-[#FDF0D5] rounded-lg">
-                        <img src={erroricon} alt="Error Icon" className='pr-3' /><p className={`text-md ${message === 'Correct Answer! 🎉' ? 'text-green-500' : 'text-[#71192F]'}`}>
+                        <img src={errorIconPath} alt="Error Icon" className='pr-3' /><p className={`text-md ${message === 'Correct Answer! 🎉' ? 'text-green-500' : 'text-[#71192F]'}`}>
                             {message}
                         </p>
                     </div>
                 )}
             </div>
-            {showPopup && <PopUpPos3Part1 />}
+            {showPopup && <PopUpNext action="/game/31/confirmation" />}
         </div>
     )
 }
