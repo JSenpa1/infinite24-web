@@ -13,7 +13,7 @@ export default function BoxToInputAnswer({title, error, action}){
                 {error && <Alert severity="error" className="text-sm my-5">{error}</Alert>}
                 <input name="code" className="w-full bg-white border-none outline-none focus:ring-0 focus:outline-none pt-3 text-center" placeholder="" required/>
                 <hr className="border-t-2 border-dark-blue py-5" />
-                <Button color="dark-blue"/>
+                <Button color="dark-blue" cursorType="/images/cursorBlue.svg"/>
             </form>
         </div>
     );

@@ -4,9 +4,6 @@ import BoxToInputCode from "../../Components/Game/BoxToInputCode"
 import React, { useEffect } from 'react';
 
 function InputCode({error, id}){
-    useEffect(() => {
-        console.log(error);
-    }, []);
     return(
         <div className="bg-dark-red">
             <Navbar />

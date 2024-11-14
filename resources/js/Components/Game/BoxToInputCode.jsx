@@ -14,7 +14,7 @@ export default function BoxToInputCode({title, subtitle, action, error}){
                 {subtitle && <div id="subtitle" className="text-black text-sm">{subtitle}</div>}
                 <input name="code" className="w-full bg-white border-none outline-none focus:ring-0 focus:outline-none pt-3 text-center" placeholder="" required/>
                 <hr className="border-t-2 border-dark-red py-5" />
-                <Button color="dark-red"/>
+                <Button color="dark-red" cursorType='/images/cursorRed.svg'/>
             </form>
         </div>
     );

@@ -82,7 +82,7 @@ export default function Pos1({ error, success, data }){
                                 <AnswerBox name="answer12b" placeholder="L=?" />
                             </div>
                         </div>
-                        <div className="flex justify-center pb-5"><Button color="[#669BBC]" /></div>
+                        <div className="flex justify-center pb-5"><Button color="[#669BBC]" cursorType='/images/cursorBlue.svg'/></div>
                     </form>
                 </div>
             </div>

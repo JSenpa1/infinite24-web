@@ -15,6 +15,6 @@ class Pos4 extends Model
 
     protected $fillable = [
         'id',
-        'jawaban',
+        'answer',
     ];
 }

@@ -10,6 +10,7 @@ use App\Models\Pos1;
 use App\Models\Pos2Part1;
 use App\Models\Pos2Part2;
 use App\Models\Pos3;
+use App\Models\Pos4;
 use function Ramsey\Uuid\v1;
 
 class PagesController extends Controller
@@ -64,6 +65,12 @@ class PagesController extends Controller
                 return $arrayData;
                 break;
             case 'Game/Pos3Part2':
+                $user = User::where('group_code', session('user'))->first();
+                $data = Pos3::where('id', $user->id)->get();
+
+                $arrayData = $data->toArray();
+                return $arrayData;
+                break;
                 break;
             default:
                 break;
@@ -102,6 +109,12 @@ class PagesController extends Controller
                     break;
                 case 2:
                     $user->progress = 'Game/Pos3Part1';
+                    break;
+                case 3:
+                    $user->progress = 'Game/Pos4Part1';
+                    break;
+                case 4:
+                    $user->progress = 'Game/Pos5Part1';
                     break;
                 default:
                     break;
@@ -234,19 +247,37 @@ class PagesController extends Controller
                 return redirect('/game');
                 break;
             case 32:
+                if($request->input('_token')){
+                    return Inertia::render('Game/InputCode', [
+                        'id' => 3,
+                    ]);
+                }else{
+                    return redirect('/game');
+                }
+                break;
+            case 41:
                 $user = User::where('group_code', session('user'))->first();
-                $answerkey = Pos3::where('id', $user->id)->first();
+                $user->progress = 'Game/Pos4Part2';
+                $user->save();
+                return redirect('/game');
+                break;
+            case 42:
+                $user = User::where('group_code', session('user'))->first();
+                $answerkey = Pos4::where('id', 1)->first();
                 if($answerkey->answer != $request->input('code')){
                     return back()->with('error', 'Jawaban Masih Kurang Tepat!');
                 }else{
                     return back()->with('success', true);
                 }
                 break;
-            case 33:
-                $user = User::where('group_code', session('user'))->first();
-                $user->progress = 'Game/Pos4';
-                $user->save();
-                return redirect('/game');
+            case 43:
+                if($request->input('_token')){
+                    return Inertia::render('Game/InputCode', [
+                        'id' => 4,
+                    ]);
+                }else{
+                    return redirect('/game');
+                }
                 break;
             default:
                 break;

@@ -1,9 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PopUpNext from "../../Components/Game/PopUpNext";
+import Button from '../../Components/Game/Button'
 // import Grid from '../../../../assets/GridFull.png';
 // import Penghapus from '../../../../assets/Penghapus.png';
 
-function Pos3Part2({success}) {
+function Pos3Part2({success, data}) {
     const [formData, setFormData] = useState(Array(6).fill(''));
     const [message, setMessage] = useState('');
     const [showPopup, setShowPopup] = useState(false);
@@ -11,11 +12,11 @@ function Pos3Part2({success}) {
     const kodeMorsePath = "/Assets/kodeMorse.png";
     const sandiPath = "/Assets/SANDI MORSE.png";
     const errorIconPath = "/Assets/error_icon.png";
-    const clockPath = "/Assets/jampos3.png";
+    const clockPath = data?.[0]?.clock;
     const gridPath = "/Assets/GridPenghapus.png";
     const notesPath = "/Assets/Notes.png";
 
-    const correctAnswer = 'CLOCKS';
+    const correctAnswer = data?.[0]?.answer;
 
     function handleInputChange(index, event) {
         const newChar = event.target.value.slice(0, 1).toUpperCase();
@@ -42,6 +43,12 @@ function Pos3Part2({success}) {
         // Prevent default behavior
         event.preventDefault();
     }
+
+    useEffect(() => {
+        if (success) {
+            setShowPopup(true);
+        }
+    }, [success]);
 
     function handleSubmitp2(e) {
         e.preventDefault();
@@ -89,7 +96,7 @@ function Pos3Part2({success}) {
                         </p>
                     </div>
                 )}
-                <form action="/game/32/confirmation" className="mt-5 md:mt-8 flex flex-col justify-center items-center">
+                <form onSubmit={handleSubmitp2} className="mt-5 md:mt-8 flex flex-col justify-center items-center">
                     <div className="grid grid-cols-6 gap-3 md:gap-8 lg:gap-10">
                         {formData.map((value, index) => (
                             <input
@@ -105,12 +112,10 @@ function Pos3Part2({success}) {
                         ))}
                     </div>
 
-                    <button type="submit" className="mt-6 md:mt-12 bg-[#669BBC] text-md py-2 px-8 md:text-2xl md:py-4 shadow-[5px_5px_0px_rgba(0,0,0,1)] md:px-12 text-white rounded-lg">
-                        SUBMIT
-                    </button>
+                    <div className="flex justify-center pt-10"><Button color="[#669BBC]" cursorType='/images/cursorBlue.svg'/></div>
                 </form>
             </div>
-            {showPopup && <PopUpNext action="/game/33/confirmation"/>}
+            {showPopup && <PopUpNext action="/game/32/confirmation"/>}
         </div>
     );
 }
