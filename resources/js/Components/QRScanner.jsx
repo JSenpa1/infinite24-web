@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import Instascan from 'instascan';
 
 const QRScanner = ({ onScan }) => {
     const videoRef = useRef(null);
@@ -7,20 +8,15 @@ const QRScanner = ({ onScan }) => {
     useEffect(() => {
         // Dynamically load Instascan
         const loadInstascan = async () => {
-            if (!window.Instascan) {
-                console.error("Instascan not loaded");
-                return;
-            }
-
-            const scanner = new window.Instascan.Scanner({ video: videoRef.current });
+            const Instascan = (await import('instascan')).default;
+            const scanner = new Instascan.Scanner({ video: videoRef.current });
             setScanner(scanner);
-
+        
             scanner.addListener('scan', content => {
                 if (onScan) onScan(content);
             });
-
-            // Request camera access and start scanning
-            window.Instascan.Camera.getCameras().then(cameras => {
+        
+            Instascan.Camera.getCameras().then(cameras => {
                 if (cameras.length > 0) {
                     scanner.start(cameras[0]);
                 } else {
