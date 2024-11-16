@@ -30,9 +30,9 @@ use Inertia\Inertia;
 //     return Inertia::render('Game/InputCode');
 // });
 
-// Route::get('/ngapainkesiniwoi/admin', function() {
-//     return Inertia::render('Admin');
-// });
+Route::get('/ngapainkesiniwoi/admin', function() {
+    return Inertia::render('Admin');
+});
 
 Route::get('/PembayaranDone', function() {
     return Inertia::render('PembayaranDone');
