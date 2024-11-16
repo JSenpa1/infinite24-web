@@ -35,4 +35,4 @@ Route::get('/sendEmailPeserta', [PesertaController::class, 'sendEmailPeserta']);
 
 Route::get('/inputPeserta', [PesertaController::class, 'inputPeserta']);
 Route::get('/updateRegis', [PesertaController::class, 'updateRegis']);
-Route::get('/sendEmail', [PesertaController::class, 'sendEmail']);
+// Route::get('/sendEmail', [PesertaController::class, 'sendEmail']);

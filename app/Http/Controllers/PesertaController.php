@@ -75,24 +75,24 @@ class PesertaController extends Controller
         }
     }
 
-    public function sendEmail()
-    {
-        $emails = TesEmail::all();
+    // public function sendEmail()
+    // {
+    //     $emails = Peserta::all();
 
-        try {
-            foreach ($emails as $recipient) {
-                $data = [
-                    'nim' => $recipient->nim,
-                ];
+    //     try {
+    //         foreach ($emails as $recipient) {
+    //             $data = [
+    //                 'nim' => $recipient->nim,
+    //             ];
                 
-                Mail::to("$recipient->email")->send(new MailContent($data));
-            }
+    //             Mail::to("$recipient->email")->send(new MailContent($data));
+    //         }
 
-            return response()->json(['message' => 'Email has been sent successfully!'], 200);
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Failed to send email. Error: ' . $e->getMessage()], 500);
-        }
-    }
+    //         return response()->json(['message' => 'Email has been sent successfully!'], 200);
+    //     } catch (\Exception $e) {
+    //         return response()->json(['message' => 'Failed to send email. Error: ' . $e->getMessage()], 500);
+    //     }
+    // }
 
     // public function sendEmail()
     // {
@@ -126,5 +126,4 @@ class PesertaController extends Controller
             return response()->json(['message' => 'Failed to send email. Error: ' . $e->getMessage()], 500);
         }
     }      
-   
 }
