@@ -165,9 +165,10 @@ class TicketController extends Controller
                 $data = ['nim' => $order->nim];
                 Mail::to($order->email)->send(new MailContent($data));
 
-                return redirect('/PembayaranDone');
+                return response()->json(['message' => 'Payment done successfully'], 200);
             }
         }
-    }
 
+        return response()->json(['message' => 'Notification processed successfully'], 200);
+    }
 }
