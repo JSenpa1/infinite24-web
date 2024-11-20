@@ -50,9 +50,9 @@ class UserSeeder extends Seeder
             User::create([
                 // 'id' => $index + 1, 
                 'group_code' => $group,
-                'group_name' => "Group " + $index + 1,
+                'group_name' => "Group " . ($index + 1), // Use . for string concatenation
                 'progress' => "Game/Pos1",
             ]);
-        }
+        }        
     }
 }
