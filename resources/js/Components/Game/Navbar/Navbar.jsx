@@ -3,7 +3,7 @@ export default function Navbar(){
         <div className="absolute top-0 w-screen h-fit">
             <div className="flex justify-center p-5 h-24">
                 <div className="flex justify-center items-center w-32">
-                    <img src="Assets/logo_white_word.png" />
+                    <img src="Assets/logo_white_word.svg" />
                 </div>
             </div>
             <hr className="pb-1 border-t-2 border-white" />

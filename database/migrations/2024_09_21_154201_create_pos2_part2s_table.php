@@ -19,7 +19,7 @@ return new class extends Migration
 
         $data = [
             [
-                'answer' => 'Kami adalah mahasiswa-mahasiswi Universitas Multimedia Nusantara, dan kami berasal dari prodi Informatika. Setiap hari kami melaksanakan perkuliahan yang dimulai dengan belajar tentang algoritma dan pemrograman. Setelah melaksanakan perkuliahan, kami lanjut mengerjakan tugas bersama-sama hingga matahari terbenam. Walaupun lelah, itu semua merupakan kewajiban kami sebagai mahasiswa.',
+                'answer' => 'kami adalah mahasiswa-mahasiswi universitas multimedia nusantara, dan kami berasal dari prodi informatika. setiap hari kami melaksanakan perkuliahan yang dimulai dengan belajar tentang algoritma dan pemrograman. setelah melaksanakan perkuliahan, kami lanjut mengerjakan tugas bersama-sama hingga matahari terbenam. walaupun lelah, itu semua merupakan kewajiban kami sebagai mahasiswa.',
             ],
         ];
 

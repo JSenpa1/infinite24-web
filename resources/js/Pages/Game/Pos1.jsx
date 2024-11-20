@@ -46,12 +46,12 @@ export default function Pos1({ error, success, data }){
                         </div>
                     ))}
                     {error ? (
-                        <div className="flex justify-center">
+                        <div className="flex justify-center mt-6">
                             <Alert severity="error">{ error }</Alert>
                         </div>
                     ) : null
                     }
-                    <form action="game/11/confirmation" method="post" className="w-4/5 h-fit">
+                    <form action="game/11/confirmation" method="post" className="w-4/5 mt-6 h-fit">
                         <input type="hidden" name="_token" value={csrfToken} />
                         <div className="flex flex-col lg:flex-row h-full justify-around">
                             <div className="grid grid-cols-3 gap-5 w-full lg:w-1/3 mb-5 lg:mb-0 h-full">

@@ -210,7 +210,7 @@ class PagesController extends Controller
                     }
                 }
                 
-                if($answerkey->answer != $request->input('code')){
+                if($answerkey->answer != strtolower($request->input('code'))){
                     return back()->with('error', 'Jawaban Masih Kurang Tepat!');
                 }else{
                     return back()->with('success', true);
@@ -225,7 +225,7 @@ class PagesController extends Controller
                 break;
             case 23:
                 $answerkey = Pos2Part2::where('id', 1)->first();
-                if($answerkey->answer != $request->input('code')){
+                if($answerkey->answer != strtolower($request->input('code'))){
                     return back()->with('error', 'Jawaban Masih Kurang Tepat!');
                 }else{
                     return back()->with('success', true);
@@ -264,7 +264,7 @@ class PagesController extends Controller
             case 42:
                 $user = User::where('group_code', session('user'))->first();
                 $answerkey = Pos4::where('id', 1)->first();
-                if($answerkey->answer != $request->input('code')){
+                if($answerkey->answer != strtolower($request->input('code'))){
                     return back()->with('error', 'Jawaban Masih Kurang Tepat!');
                 }else{
                     return back()->with('success', true);

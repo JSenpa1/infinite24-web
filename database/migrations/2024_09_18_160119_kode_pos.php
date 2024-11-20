@@ -35,6 +35,10 @@ return new class extends Migration
                 'kode_akhir' => 'lobby b',
                 'kode_awal' => 'bohongnya',
             ],
+            [
+                'kode_akhir' => 'function hall',
+                'kode_awal' => '',
+            ],
         ];
 
         DB::table('kodepos')->insert($data);
