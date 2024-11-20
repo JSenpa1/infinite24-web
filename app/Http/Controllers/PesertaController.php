@@ -63,12 +63,15 @@ class PesertaController extends Controller
             $peserta = Peserta::where('nim', $nim)->first();
 
             if ($peserta) {
-                $peserta->regis_ulang = true;
-                $peserta->save();
-
+                if($peserta->regis_ulang){
+                    return response()->json(['message' => 'Sudah regis ulang'], 200);
+                }else{
+                    $peserta->regis_ulang = true;
+                    $peserta->save();
+                }
                 return response()->json(['message' => 'Berhasil Update'], 200);
             } else {
-                return response()->json(['message' => 'nim salah'], 404);
+                return response()->json(['message' => 'nim not found'], 404);
             }
         } catch (\Exception $e) {
             return response()->json(['message' => 'Error: ' . $e->getMessage()], 500);

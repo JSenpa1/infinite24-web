@@ -34,5 +34,5 @@ Route::get('/sendEmailPeserta', [PesertaController::class, 'sendEmailPeserta']);
 // Route::get('/fetchClockPos3', [Pos3Controller::class, 'fetchClock']);
 
 Route::get('/inputPeserta', [PesertaController::class, 'inputPeserta']);
-Route::get('/updateRegis', [PesertaController::class, 'updateRegis']);
+Route::get('/updateRegisUlangUlang', [PesertaController::class, 'updateRegis']);
 // Route::get('/sendEmail', [PesertaController::class, 'sendEmail']);
