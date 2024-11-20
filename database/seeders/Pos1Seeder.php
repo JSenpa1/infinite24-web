@@ -13,46 +13,24 @@ class Pos1Seeder extends Seeder
      */
     public function run(): void
     {
-    
-        $board1 = [
-            'A1' => '2',
-            'B1' => '-6',
-            'C1' => '6',
-            'D1' => '-2',
-            'E1' => '1',
-            'F1' => '8',
-            'G1' => '14',
-            'H1' => '10',
-            'I1' => '9',
+        $data = [
+            [
+                'answer' => json_encode([2, -6, 6, -2, 1, 8, 14, 10, 9]),
+                'image' => 'Assets/Game/Pos1/soal1.png',
+                'title' => 'Assets/Game/Pos1/tulisansoal1.svg',
+            ],
+            [
+                'answer' => json_encode([3, 9, 2, 74, 4, 10, 80, 7, 1, 5, 8, 6]),
+                'image' => 'Assets/Game/Pos1/soal2.png',
+                'title' => 'Assets/Game/Pos1/tulisansoal2.svg',
+            ],
         ];
 
-        $board2 = [
-            'A2' => '3',
-            'B2' => '9',
-            'C2' => '2',
-            'D2' => '74',
-            'E2' => '4',
-            'F2' => '10',
-            'G2' => '80',
-            'H2' => '7',
-            'I2' => '1',
-            'J2' => '5',
-            'K2' => '8',
-            'L2' => '6',
-            'M2' => '9',
-        ];
-
-        foreach ($board1 as $soal => $jawaban) {
+        foreach ($data as $item) {
             Pos1::create([
-                'soal' => $soal,
-                'jawaban' => $jawaban,
-            ]);
-        }
-
-        foreach ($board2 as $soal => $jawaban) {
-            Pos1::create([
-                'soal' => $soal,
-                'jawaban' => $jawaban,
+                'answer' => $item['answer'],
+                'image' => $item['image'],
+                'title' => $item['title'],
             ]);
         }
     }

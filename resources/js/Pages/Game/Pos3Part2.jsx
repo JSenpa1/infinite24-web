@@ -12,7 +12,13 @@ function Pos3Part2({success, data}) {
     const kodeMorsePath = "/Assets/kodeMorse.png";
     const sandiPath = "/Assets/SANDI MORSE.png";
     const errorIconPath = "/Assets/error_icon.png";
-    const clockPath = data?.[0]?.clock;
+
+
+    const clockDirect = "/Assets/Game/Clock/";
+    const clockFile = data?.[0]?.clock;
+    const clockPath = clockDirect + clockFile;
+
+
     const gridPath = "/Assets/GridPenghapus.png";
     const notesPath = "/Assets/Notes.png";
 
