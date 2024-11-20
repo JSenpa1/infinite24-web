@@ -43,6 +43,11 @@ class PagesController extends Controller
                     'alertCode' => session('alertCode'),
                 ]);
             }
+
+            else if($user->progress == 'Selesai') {
+                return redirect('/');
+            }
+
             else{
                 return Inertia::render($user->progress, [
                     'data' => $data,
@@ -308,7 +313,7 @@ class PagesController extends Controller
                 break;
             case 54:
                 $user = User::where('group_code', session('user'))->first();
-                $user->progress = 'Game/Leaderboard';
+                $user->progress = 'Selesai';
                 $user->save();
 
                 if (session()->has('start_time')) {
@@ -317,7 +322,7 @@ class PagesController extends Controller
                     $user->save();
                 }
 
-                return redirect('/game');
+                return redirect('/');
                 break;
             default:
                 break;
