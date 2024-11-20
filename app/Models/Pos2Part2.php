@@ -15,6 +15,6 @@ class Pos2Part2 extends Model
 
     protected $fillable = [
         'id',
-        'jawaban',
+        'answer',
     ];
 }

@@ -9,12 +9,13 @@ class KodePos extends Model
 {
     use HasFactory;
 
-    protected $table = 'KodePos';
+    protected $table = 'kodepos';
 
     public $timestamps = false;
 
     protected $fillable = [
         'id',
-        'kode',
+        'kode_awal',
+        'kode_akhir',
     ];
 }

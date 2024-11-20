@@ -21,18 +21,20 @@ use Inertia\Inertia;
 //     ]);
 // });
 
-// Route::get('/game', [PagesController::class, 'CheckUser'])->name('check-user');
+Route::get('/game', [PagesController::class, 'CheckUser'])->name('check-user');
 
-// Route::post('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
+Route::post('/game/check-status', [PagesController::class, 'CheckRegistration'])->name('check-registration');
+Route::post('/game/check-code/{id}', [PagesController::class, 'CheckUnlockCode'])->name('check-unlock-code');
 
-// Route::post('/game/{id}/confirmation', [PagesController::class, 'CheckAnswer'])->name('check-answer');
+Route::post('/game/{id}/confirmation', [PagesController::class, 'CheckAnswer'])->name('check-answer');
+Route::get('/game/{id}/confirmation', [PagesController::class, 'CheckAnswer'])->name('check-answer');
 // Route::post('game/{id}/confirmation', function (){
 //     return Inertia::render('Game/InputCode');
 // });
 
-Route::get('/ngapainkesiniwoi/admin', function() {
-    return Inertia::render('Admin');
-});
+// Route::get('/ngapainkesiniwoi/admin', function() {
+//     return Inertia::render('Admin');
+// });
 
 Route::get('/PembayaranDone', function() {
     return Inertia::render('PembayaranDone');

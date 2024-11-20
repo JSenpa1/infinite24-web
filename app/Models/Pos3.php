@@ -15,7 +15,7 @@ class Pos3 extends Model
 
     protected $fillable = [
         'id',
-        'jawaban',
+        'answer',
         'clock',
     ];
 }
