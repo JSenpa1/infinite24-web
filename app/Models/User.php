@@ -18,6 +18,7 @@ class User extends Authenticatable
         'group_name',
         'group_code',
         'progress',
+        'time'
     ];
 
     /**

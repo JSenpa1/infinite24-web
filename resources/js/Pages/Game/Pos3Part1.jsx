@@ -2,7 +2,13 @@ import React, { useState, useEffect } from 'react';
 import PopUpNext from "../../Components/Game/PopUpNext";
 import { Link, Head } from '@inertiajs/react';
 
-function Pos3Part1() {
+function Pos3Part1({alertCode}) {
+    useEffect(() => {
+        if (alertCode) {
+            alert(alertCode);
+        }
+    }, []);
+    
     const [formData, setFormData] = useState('');
     const [message, setMessage] = useState('');
     const [showPopup, setShowPopup] = useState(false); // Control pop-up visibility
@@ -29,7 +35,6 @@ function Pos3Part1() {
                     <form onSubmit={handleSubmit} className='flex flex-col items-center'>
                         <input
                             name="answerpos3"
-                            placeholder='CLOCK'
                             value={formData}
                             onChange={(e) => setFormData(e.target.value)}
                             className="w-[240px] md:w-[350px] border-b-4 border-x-0 z-0 border-t-0 border-[#003049] focus:border-[#003049] focus:scale-95 bg-transparent rounded-t-xl text-center"

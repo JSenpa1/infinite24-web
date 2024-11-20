@@ -7,12 +7,6 @@ const Pos5Part1 = ({alertCode, error, success}) => {
     const [showPopup, setShowPopup] = useState(false);
 
     useEffect(() => {
-        if (alertCode) {
-            alert(alertCode);
-        }
-    }, []);
-
-    useEffect(() => {
         if (success) {
             setShowPopup(true);
         }
@@ -24,7 +18,7 @@ const Pos5Part1 = ({alertCode, error, success}) => {
             <div className="container flex justify-center items-center mx-auto min-h-screen">
                 <BoxToInputAnswer title="MASUKKAN KODE KEDATANGAN" subtitle="" action="/game/51/confirmation" error={error}/>
             </div>
-            {showPopup && <PopUpPos5 action="/game/52/confirmation"/>}
+            {showPopup && <PopUpPos5 subtitle="1" action="/game/52/confirmation"/>}
         </div>
     );
 };

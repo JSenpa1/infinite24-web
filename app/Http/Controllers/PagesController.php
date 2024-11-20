@@ -71,6 +71,10 @@ class PagesController extends Controller
                 $arrayData = $data->toArray();
                 return $arrayData;
                 break;
+            case 'Game/Leaderboard':
+                $user = User::where('group_code', session('user'))->first();
+                $data = $data->time;
+                return $data;
                 break;
             default:
                 break;
@@ -90,6 +94,7 @@ class PagesController extends Controller
 
         if($user){
             session(['user' => $user->group_code]);
+            session(['start_time' => time()]);
             return back();
         }else{
             session(['error' => 'Kode Invalid']);
@@ -99,7 +104,7 @@ class PagesController extends Controller
 
     public function CheckUnlockCode(Request $request, $id){
         $kode = KodePos::where('id', $id)->first();
-        if($request->input('code') != $kode->kode_akhir){
+        if(strtolower($request->input('code')) != $kode->kode_akhir){
             return back()->with('error', 'ERROR: Kode tidak dikenal.');
         }else{
             $user = User::where('group_code', session('user'))->first();
@@ -278,6 +283,41 @@ class PagesController extends Controller
                 }else{
                     return redirect('/game');
                 }
+                break;
+            case 51:
+                $kode = KodePos::where('id', 5)->first();
+                if($kode->kode_awal != strtolower($request->input('code'))){
+                    return back()->with('error', 'ERROR: Kode tidak dikenal.');
+                }else{
+                    return back()->with('success', true);
+                }
+                break;
+            case 52:
+                $user = User::where('group_code', session('user'))->first();
+                $user->progress = 'Game/Pos5Part2';
+                $user->save();
+                return redirect('/game');
+                break;
+            case 53:
+                $kode = KodePos::where('id', 5)->first();
+                if($kode->kode_akhir != strtolower($request->input('code'))){
+                    return back()->with('error', 'ERROR: Kode tidak dikenal.');
+                }else{
+                    return back()->with('success', true);
+                }
+                break;
+            case 54:
+                $user = User::where('group_code', session('user'))->first();
+                $user->progress = 'Game/Leaderboard';
+                $user->save();
+
+                if (session()->has('start_time')) {
+                    $elapsed_time = time() - session('start_time');
+                    $user->time = $elapsed_time;
+                    $user->save();
+                }
+
+                return redirect('/game');
                 break;
             default:
                 break;
