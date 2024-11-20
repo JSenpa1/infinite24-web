@@ -33,11 +33,11 @@ return new class extends Migration
             ],
             [
                 'kode_akhir' => 'lobby b',
-                'kode_awal' => 'bohongnya',
+                'kode_awal' => '',
             ],
             [
                 'kode_akhir' => 'function hall',
-                'kode_awal' => '',
+                'kode_awal' => 'bohongnya',
             ],
         ];
 

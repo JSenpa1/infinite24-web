@@ -1,10 +1,11 @@
 import React from 'react';
 import '../../../css/popupfont.css';
 
-export default function PopUpPos5({action}) {
+export default function PopUpPos5({subtitle, action}) {
     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     const bgPath = "/Assets/PopUp.png";
     const arrowDownPath = "/Assets/arrowDown.png";
+    const isSubtitleOneOrTwo = subtitle === "1" || subtitle === "2";
     
     return (
         <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex items-center justify-center z-50">
@@ -13,7 +14,17 @@ export default function PopUpPos5({action}) {
                 style={{ backgroundImage: `url(${bgPath})`, backgroundSize: 'cover' }}
             >
                 <h1 className='text-[#003049] pl-6 md:pl-10 font-bold text-2xl md:text-5xl'>SELAMAT !!</h1>
-                <h5 className='text-[#003049] pl-6 md:pl-10 mt-5 text-xl md:text-4xl w-[90%] md:w-[80%]'>Kalian sudah sampai di langkah terakhir. Selamat bersaing champs!!!</h5>
+                {isSubtitleOneOrTwo && (
+                    <h5 className='text-[#003049] pl-6 md:pl-10 mt-5 text-xl md:text-4xl w-[90%] md:w-[80%]'>
+                        {subtitle === "1" ? (
+                            "Kalian sudah sampai di langkah terakhir. Selamat bersaing champs!!!"
+                        ) : (
+                            <>
+                                Anda telah menyelesaikan "<span className="text-[#780000]">The Escape</span>", selamat datang di INFINITE 2024!
+                            </>
+                        )}
+                    </h5>
+                )}
                 <img src={arrowDownPath} alt="Arrow Down" className='mt-2' />
                 <form action={action} method="post">
                     <input type="hidden" name="_token" value={csrfToken} />

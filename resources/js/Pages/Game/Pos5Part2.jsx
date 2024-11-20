@@ -7,12 +7,6 @@ const Pos5Part2 = ({alertCode, error, success}) => {
     const [showPopup, setShowPopup] = useState(false);
 
     useEffect(() => {
-        if (alertCode) {
-            alert(alertCode);
-        }
-    }, []);
-
-    useEffect(() => {
         if (success) {
             setShowPopup(true);
         }
@@ -24,9 +18,9 @@ const Pos5Part2 = ({alertCode, error, success}) => {
             <div className="container flex justify-center items-center mx-auto min-h-screen">
                 <BoxToInputAnswer title="MASUKKAN KODE KEPERGIAN" subtitle="" action="/game/53/confirmation" error={error}/>
             </div>
-            {showPopup && <PopUpPos5 action="/game/54/confirmation"/>}
+            {showPopup && <PopUpPos5 subtitle="2" action="/game/54/confirmation"/>}
         </div>
     );
 };
 
-export default Pos5Part1;
+export default Pos5Part2;
