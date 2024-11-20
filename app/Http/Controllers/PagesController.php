@@ -73,7 +73,7 @@ class PagesController extends Controller
                 break;
             case 'Game/Leaderboard':
                 $user = User::where('group_code', session('user'))->first();
-                $data = $data->time;
+                $data = $user->time;
                 return $data;
                 break;
             default:
