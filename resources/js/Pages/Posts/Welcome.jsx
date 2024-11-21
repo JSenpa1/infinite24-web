@@ -18,6 +18,8 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                 <div className='text-white md:text-[160px] text-[40px] font-extrabold fade-in'><span ref={glitch.ref}><span className='glow'>INFI</span><span className='text-orange-700 glow-orange'>N</span><span className='glow'>ITE</span></span></div>
                 <TypeAnimation
                     sequence={[
+                        'Pendaftaran Sudah Ditutup',
+                        1500,
                         'see you soon 24',
                         1500,
                         'see you soon 23',
