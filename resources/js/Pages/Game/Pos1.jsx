@@ -19,7 +19,7 @@ export default function Pos1({ error, success, data }) {
 
     return (
         <div className="bg-dark-blue">
-            <div className="container flex flex-col items-center justify-center mx-auto h-fit md:h-screen">
+            <div className="container flex flex-col items-center justify-center mx-auto h-fit md:h-auto">
                 <div className="flex flex-col items-center justify-center">
                     <div className="bg-[#d37d3f] shadow-xl mt-32 sm:mt-52 md:mt-0 w-[330px] h-[270px] sm:w-[400px] md:w-[740px] lg:w-[820px] px-4 md:px-7 py-4 md:py-7 hidden md:flex justify-center items-center sm:h-[300px] md:h-[450px] relative">
                         <div
