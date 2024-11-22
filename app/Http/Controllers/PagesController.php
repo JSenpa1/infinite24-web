@@ -113,7 +113,9 @@ class PagesController extends Controller
 
         // Validate the input code against kode_akhir
         if (strtolower($request->input('code')) != $kode->kode_awal) {
-            return back()->with('error', 'ERROR: Kode tidak dikenal.');
+            return Inertia::render('Game/InputCode', [
+                'id' => $id,
+            ]);
         } else {
             $user = User::where('group_code', session('user'))->first();
 
@@ -134,7 +136,9 @@ class PagesController extends Controller
 
         // Validate the input code against kode_awal
         if (strtolower($request->input('code')) != $kode->kode_akhir) {
-            return back()->with('error', 'ERROR: Kode tidak dikenal.');
+            return Inertia::render('Game/InputCode2', [
+                'id' => $id,
+            ]);
         } else {
             $user = User::where('group_code', session('user'))->first();
 
