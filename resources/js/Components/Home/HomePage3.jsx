@@ -89,7 +89,7 @@ const HomePage3 = ({ id }) => {
             <span className="font-bold">20 October 2024</span>
           </p> */}
           <p className="mt-10 text-sm md:text-base text-cream">
-            Registration is Open!!
+            Registration is Closed!!
           </p>
         </div>
       </div>
