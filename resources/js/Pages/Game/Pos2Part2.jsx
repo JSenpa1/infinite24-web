@@ -32,7 +32,7 @@ const Pos2Part2 = ({error, success}) => {
                         {error && <Alert severity="error" className="text-sm my-5">{error}</Alert>}
                         <input name="code" className="w-full bg-white border-none outline-none focus:ring-0 focus:outline-none pt-3 text-center" required value={inputValue} onChange={(e) => setInputValue(e.target.value)}/>
                         <hr className="border-t-2 border-dark-blue pt-5" />
-                        <div className="grid grid-cols-4 md:grid-cols-6 gap-4 w-full py-3 text-[0.65rem]">
+                        {/* <div className="grid grid-cols-4 md:grid-cols-6 gap-4 w-full py-3 text-[0.65rem]">
                         {[
                             "Kami adalah",
                             "berasal dari",
@@ -67,7 +67,7 @@ const Pos2Part2 = ({error, success}) => {
                               </button>
                             </div>
                           ))}
-                        </div>
+                        </div> */}
                         <Button color="dark-blue" cursorType="/images/cursorBlue.svg"/>
                     </form>
                 </div>
