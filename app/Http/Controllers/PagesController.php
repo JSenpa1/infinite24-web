@@ -107,13 +107,39 @@ class PagesController extends Controller
         }
     }
 
-    public function CheckUnlockCode(Request $request, $id){
+    public function CheckUnlockCode(Request $request, $id)
+    {
         $kode = KodePos::where('id', $id)->first();
-        if(strtolower($request->input('code')) != $kode->kode_akhir){
+
+        // Validate the input code against kode_akhir
+        if (strtolower($request->input('code')) != $kode->kode_akhir) {
             return back()->with('error', 'ERROR: Kode tidak dikenal.');
-        }else{
+        } else {
             $user = User::where('group_code', session('user'))->first();
-            switch($id){
+
+            // Update progress to a temporary status for checkPergiCode
+            // $user->progress = 'CheckPergiCode';
+            // $user->save();
+
+            // Redirect to the checkPergiCode page with the ID
+            return Inertia::render('Game/InputCode2', [
+                'id' => $id + 1,
+            ]);
+        }
+    }
+
+    public function checkPergiCode(Request $request, $id)
+    {
+        $kode = KodePos::where('id', $id)->first();
+
+        // Validate the input code against kode_awal
+        if (strtolower($request->input('code')) != $kode->kode_awal) {
+            return back()->with('error', 'ERROR: Kode tidak dikenal.');
+        } else {
+            $user = User::where('group_code', session('user'))->first();
+
+            // Update progress to the next game stage
+            switch ($id) {
                 case 1:
                     $user->progress = 'Game/Pos2Part1';
                     break;
@@ -130,9 +156,12 @@ class PagesController extends Controller
                     break;
             }
             $user->save();
-            return redirect('/game')->with('alertCode', 'Kode unlock pos selanjutnya: ' . $kode->kode_awal);
+
+            // Redirect to the updated game page
+            return redirect('/game')->with('success', 'Berhasil membuka pos selanjutnya.');
         }
     }
+
 
     public function CheckAnswer(Request $request, $id){
         switch($id){

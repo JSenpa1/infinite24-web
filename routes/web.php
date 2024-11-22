@@ -28,6 +28,14 @@ Route::post('/game/check-code/{id}', [PagesController::class, 'CheckUnlockCode']
 
 Route::post('/game/{id}/confirmation', [PagesController::class, 'CheckAnswer'])->name('check-answer');
 Route::get('/game/{id}/confirmation', [PagesController::class, 'CheckAnswer'])->name('check-answer');
+
+Route::post('/game/unlock/{id}', [PagesController::class, 'CheckUnlockCode'])->name('checkUnlockCode');
+Route::post('/game/pergi/{id}', [PagesController::class, 'checkPergiCode'])->name('checkPergiCode');
+
+// Route::get('/game/unlock/{id}', [PagesController::class, 'CheckUnlockCode'])->name('checkUnlockCode');
+// Route::get('/game/pergi/{id}', [PagesController::class, 'checkPergiCode'])->name('checkPergiCode');
+
+
 // Route::post('game/{id}/confirmation', function (){
 //     return Inertia::render('Game/InputCode');
 // });
