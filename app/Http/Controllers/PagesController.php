@@ -112,7 +112,7 @@ class PagesController extends Controller
         $kode = KodePos::where('id', $id)->first();
 
         // Validate the input code against kode_akhir
-        if (strtolower($request->input('code')) != $kode->kode_akhir) {
+        if (strtolower($request->input('code')) != $kode->kode_awal) {
             return back()->with('error', 'ERROR: Kode tidak dikenal.');
         } else {
             $user = User::where('group_code', session('user'))->first();
@@ -123,7 +123,7 @@ class PagesController extends Controller
 
             // Redirect to the checkPergiCode page with the ID
             return Inertia::render('Game/InputCode2', [
-                'id' => $id + 1,
+                'id' => $id,
             ]);
         }
     }
@@ -133,7 +133,7 @@ class PagesController extends Controller
         $kode = KodePos::where('id', $id)->first();
 
         // Validate the input code against kode_awal
-        if (strtolower($request->input('code')) != $kode->kode_awal) {
+        if (strtolower($request->input('code')) != $kode->kode_akhir) {
             return back()->with('error', 'ERROR: Kode tidak dikenal.');
         } else {
             $user = User::where('group_code', session('user'))->first();
@@ -158,7 +158,7 @@ class PagesController extends Controller
             $user->save();
 
             // Redirect to the updated game page
-            return redirect('/game')->with('success', 'Berhasil membuka pos selanjutnya.');
+            return redirect('/game')->with('alertCode', 'Berhasil membuka pos selanjutnya.');
         }
     }
 

@@ -54,7 +54,7 @@ export default function Pos1({ error, success, data }){
                     <form action="game/11/confirmation" method="post" className="w-4/5 mt-6 h-fit">
                         <input type="hidden" name="_token" value={csrfToken} />
                         <div className="flex flex-col lg:flex-row h-full justify-around">
-                            <div className="grid grid-cols-3 gap-5 w-full lg:w-1/3 mb-5 lg:mb-0 h-full">
+                            <div className="grid grid-cols-3 gap-5 w-full h-auto lg:w-1/3 mb-5 lg:mb-0">
                                 <div className="col-span-3 text-center text-lg text-white">Jawaban Soal 1</div>
                                 <AnswerBox name="answer1a" placeholder="A=?" />
                                 <AnswerBox name="answer2a" placeholder="B=?" />
@@ -66,7 +66,7 @@ export default function Pos1({ error, success, data }){
                                 <AnswerBox name="answer8a" placeholder="H=?" />
                                 <AnswerBox name="answer9a" placeholder="I=?" />
                             </div>
-                            <div className="grid grid-cols-4 gap-5 w-full lg:w-1/3 mb-5 h-full">
+                            <div className="grid grid-cols-4 gap-5 w-full lg:w-1/3 mb-5 h-auto">
                                 <div className="col-span-4 text-center text-lg text-white">Jawaban Soal 2</div>
                                 <AnswerBox name="answer1b" placeholder="A=?" />
                                 <AnswerBox name="answer2b" placeholder="B=?" />
