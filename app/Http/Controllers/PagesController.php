@@ -69,6 +69,21 @@ class PagesController extends Controller
                 $arrayData = $data->toArray();
                 return $arrayData;
                 break;
+
+            case 'Game/Pos2Part1':
+                $user = User::where('group_code', session('user'))->first();
+                if($user->id <= 10){
+                    $data = "makan - terletak - utara - warung - yang - sulawesi - di";
+                } else{
+                    if($user->id <= 20){
+                        $data = "mursid - lezat - makanan - bang - bergizi - dan";
+                    } else{
+                        $data = "buah - yang - nya - ada - sayur - minuman - dan - tempat";
+                    }
+                }
+                return $data;
+                break;
+
             case 'Game/Pos3Part2':
                 $user = User::where('group_code', session('user'))->first();
                 $data = Pos3::where('id', $user->id)->get();
